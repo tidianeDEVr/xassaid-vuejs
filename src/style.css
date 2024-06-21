@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import "remixicon/fonts/remixicon.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .h-screen-minus-20 {
+    height: calc(100vh - 20px);
+  }
+}
+
+:root {
+  --xassida-green: #00bf63;
+}
+
+.controls-out {
+  bottom: -60px;
+}
+
+#progress,
+#progress::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+}
+
+#progress::-webkit-slider-thumb {
+  background-color: var(--xassida-green);
+  border-radius: 100%;
+  scale: 1.5;
+  aspect-ratio: 1;
+  height: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}

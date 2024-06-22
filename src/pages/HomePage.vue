@@ -17,7 +17,7 @@ import LoaderCard from "../components/Dumbs/LoaderCard.vue";
       <a href="/" data-navigo class="bg-transparent">
         <div
           class="aspect-square rounded-md bg-cover bg-no-repeat bg-center overflow-hidden"
-          style="background-image: url(../../public/images/s.massamba.jpeg)"
+          style="background-image: url(../../images/s.massamba.jpeg)"
         >
           <div
             class="bg-gradient-to-t from-black/90 hover:from-green-800/90 duration-300 ease-in-out to-zinc-100/0 w-full h-full flex flex-col justify-end p-4"
@@ -46,7 +46,7 @@ import LoaderCard from "../components/Dumbs/LoaderCard.vue";
       <a href="/" data-navigo class="bg-transparent">
         <div
           class="aspect-square rounded-md bg-cover bg-no-repeat bg-center overflow-hidden"
-          style="background-image: url(../../public/images/ht.jpeg)"
+          style="background-image: url(../../images/ht.jpeg)"
         >
           <div
             class="bg-gradient-to-t from-black/90 hover:from-green-500/30 duration-300 ease-in-out to-zinc-100/0 w-full h-full flex flex-col justify-end p-4"
@@ -75,7 +75,7 @@ import LoaderCard from "../components/Dumbs/LoaderCard.vue";
       <a href="/" data-navigo class="bg-transparent">
         <div
           class="aspect-square rounded-md bg-cover bg-no-repeat bg-center overflow-hidden"
-          style="background-image: url(../../public/images/ht.jpeg)"
+          style="background-image: url(../../images/ht.jpeg)"
         >
           <div
             class="bg-gradient-to-t from-black/90 hover:from-green-500/30 duration-300 ease-in-out to-zinc-100/0 w-full h-full flex flex-col justify-end p-4"
@@ -104,7 +104,7 @@ import LoaderCard from "../components/Dumbs/LoaderCard.vue";
       <a href="/" data-navigo class="bg-transparent">
         <div
           class="aspect-square rounded-md bg-cover bg-no-repeat bg-center overflow-hidden"
-          style="background-image: url(../../public/images/ht.jpeg)"
+          style="background-image: url(../../images/ht.jpeg)"
         >
           <div
             class="bg-gradient-to-t from-black/90 hover:from-green-500/30 duration-300 ease-in-out to-zinc-100/0 w-full h-full flex flex-col justify-end p-4"

@@ -57,7 +57,7 @@ function warn() {
           </button>
         </div>
         <button
-          class="xl:hidden text-xl ml-3 bg-green-500/20 px-3 rounded-full"
+          class="xl:hidden text-xl ml-3 bg-green-500/20 px-3 aspect-square rounded-full"
         >
           <i class="ri-menu-line"></i>
         </button>

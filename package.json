@@ -1,14 +1,14 @@
 {
   "name": "web",
-  "private": true,
   "version": "0.0.0",
-  "type": "module",
+  "private": true,
   "scripts": {
-    "dev": "vite",
     "build": "vue-tsc && vite build",
+    "dev": "vite",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@vue/language-core": "^2.0.21",
     "notiflix": "^3.2.7",
     "remixicon": "^4.3.0",
     "vue": "^3.4.21",
@@ -25,5 +25,6 @@
     "vite": "^5.2.0",
     "vue-router": "^4.3.3",
     "vue-tsc": "^2.0.6"
-  }
+  },
+  "type": "module"
 }

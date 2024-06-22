@@ -2,8 +2,12 @@
 import { ref } from "vue";
 
 let isOpened = ref(true);
+let isPlaying = ref(true);
 function toggle() {
   isOpened.value = !isOpened.value;
+}
+function play() {
+  isPlaying.value = !isPlaying.value;
 }
 </script>
 
@@ -21,7 +25,7 @@ function toggle() {
         <div class="flex-1 mx-3">
           <audio class="hidden" controls id="audio">
             <source
-              src="/public/mp3/xassaid/midadi-kourel-hizbut-tarqiyyah-rufisque-ramadan-2021.mp3"
+              src="/mp3/xassaid/midadi-kourel-hizbut-tarqiyyah-rufisque-ramadan-2021.mp3"
             />
           </audio>
           <div class="flex flex-col">
@@ -54,8 +58,10 @@ function toggle() {
           <button
             class="control bg-black/50 w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/90 duration-300 ease-in-out hover:scale-110"
             id="play-pause-btn"
+            @click="play"
           >
-            <i class="ri-play-line"></i>
+            <i class="ri-play-line" v-if="isPlaying"></i>
+            <i class="ri-pause-line" v-else></i>
           </button>
 
           <button

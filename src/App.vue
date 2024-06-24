@@ -13,7 +13,7 @@ Notiflix.Notify.init({
 
 <template>
   <div class="grid grid-cols-12 gap-3">
-    <div class="hidden col-span-2 xl:flex flex-col gap-3 h-screen-minus-20">
+    <div class="hidden col-span-2 xl:flex flex-col gap-3 lg:h-screen-minus-20">
       <Aside />
     </div>
     <div class="col-span-12 xl:col-span-10 h-screen-minus-20">

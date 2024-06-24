@@ -29,23 +29,24 @@
       <li class="hover:scale-110 duration-300 ease-in-out">
         <router-link
           activeClass="bg-green-500/40"
-          to="/library"
+          to="/audios"
           class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
         >
-          <i class="ri-quill-pen-fill"></i>
-          <span class="ml-3 font-title">Bibliothèque</span>
+          <i class="ri-rfid-fill"></i>
+          <span class="ml-3 font-title">Audios</span>
         </router-link>
       </li>
       <li class="hover:scale-110 duration-300 ease-in-out">
         <router-link
           activeClass="bg-green-500/40"
-          to="/podcasts"
+          to="/durus"
           class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
         >
-          <i class="ri-rfid-fill"></i>
-          <span class="ml-3 font-title">Podcasts</span>
+          <i class="ri-quill-pen-fill"></i>
+          <span class="ml-3 font-title">Durus</span>
         </router-link>
       </li>
+
       <li class="hover:scale-110 duration-300 ease-in-out">
         <router-link
           activeClass="bg-green-500/40"

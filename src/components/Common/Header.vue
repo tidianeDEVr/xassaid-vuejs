@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import Notiflix from "notiflix";
+import { ref } from "vue";
+let isMobileMenuActive = ref(false);
 function goBack() {
   window.history.back();
 }
@@ -9,9 +11,73 @@ function goForward() {
 function warn() {
   Notiflix.Notify.warning("Cette fonctionnalité est bientôt disponible !");
 }
+function toggleMobileMenu() {
+  isMobileMenuActive.value = !isMobileMenuActive.value;
+}
 </script>
 
 <template>
+  <div
+    class="absolute h-screen w-screen overlay z-50 bg-black/30 backdrop-blur-sm top-0 left-0"
+    v-if="isMobileMenuActive.valueOf()"
+    @click="toggleMobileMenu"
+  >
+    <div class="w-60 bg-black h-full flex flex-col align-center">
+      <ul class="flex flex-col gap-2 mt-2">
+        <li class="hover:scale-110 duration-300 ease-in-out w-full">
+          <router-link
+            activeClass="bg-green-500/40"
+            to="/"
+            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
+          >
+            <i class="ri-play-circle-fill"></i>
+            <span class="ml-3 font-title">Accueil</span>
+          </router-link>
+        </li>
+        <li class="hover:scale-110 duration-300 ease-in-out">
+          <router-link
+            activeClass="bg-green-500/40"
+            to="/audios"
+            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
+          >
+            <i class="ri-rfid-fill"></i>
+            <span class="ml-3 font-title">Audios</span>
+          </router-link>
+        </li>
+        <li class="hover:scale-110 duration-300 ease-in-out">
+          <router-link
+            activeClass="bg-green-500/40"
+            to="/durus"
+            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
+          >
+            <i class="ri-quill-pen-fill"></i>
+            <span class="ml-3 font-title">Durus</span>
+          </router-link>
+        </li>
+
+        <li class="hover:scale-110 duration-300 ease-in-out">
+          <router-link
+            activeClass="bg-green-500/40"
+            to="/blog"
+            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
+          >
+            <i class="ri-function-fill"></i>
+            <span class="ml-3 font-title">Blog</span>
+          </router-link>
+        </li>
+        <li class="hover:scale-110 duration-300 ease-in-out">
+          <router-link
+            activeClass="bg-green-500/40"
+            to="/contact"
+            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
+          >
+            <i class="ri-mail-fill"></i>
+            <span class="ml-3 font-title">Contact</span>
+          </router-link>
+        </li>
+      </ul>
+    </div>
+  </div>
   <nav class="pt-4 px-4 flex align-center justify-between mb-4">
     <div class="flex justify-between xl:justify-normal w-full gap-5">
       <router-link
@@ -58,6 +124,7 @@ function warn() {
         </div>
         <button
           class="xl:hidden text-xl ml-3 bg-green-500/20 px-3 aspect-square rounded-full"
+          @click="toggleMobileMenu"
         >
           <i class="ri-menu-line"></i>
         </button>

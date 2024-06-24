@@ -53,7 +53,7 @@ function play() {
             class="control bg-black/50 w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/90 duration-300 ease-in-out hover:scale-110"
             id="backward-btn"
           >
-            <i class="ri-skip-back-line"></i>
+            <i class="ri-replay-15-line"></i>
           </button>
           <button
             class="control bg-black/50 w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/90 duration-300 ease-in-out hover:scale-110"
@@ -68,7 +68,7 @@ function play() {
             class="control bg-black/50 w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/90 duration-300 ease-in-out hover:scale-110"
             id="forward-btn"
           >
-            <i class="ri-skip-forward-line"></i>
+            <i class="ri-forward-15-line"></i>
           </button>
           <button
             class="control bg-black/50 w-10 h-10 flex items-center justify-center rounded-full hover:bg-black/90 duration-300 ease-in-out hover:scale-110"

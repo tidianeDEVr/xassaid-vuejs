@@ -10,6 +10,7 @@
   "dependencies": {
     "@vue/language-core": "^2.0.21",
     "notiflix": "^3.2.7",
+    "register-service-worker": "^1.7.2",
     "remixicon": "^4.3.0",
     "vue": "^3.4.21",
     "vuex": "^4.0.2"
@@ -17,6 +18,7 @@
   "devDependencies": {
     "@types/node": "^20.14.6",
     "@vitejs/plugin-vue": "^5.0.4",
+    "@vue/cli-plugin-pwa": "~5.0.0",
     "@vue/cli-plugin-typescript": "^5.0.8",
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",

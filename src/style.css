@@ -8,6 +8,13 @@
   .h-screen-minus-20 {
     height: calc(100vh - 20px);
   }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 :root {
@@ -15,14 +22,14 @@
 }
 
 .controls-out {
-  bottom: -60px;
+  bottom: -4rem;
 }
 
 #progress,
 #progress::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  height: 12px;
+  height: 10px;
 }
 
 #progress::-webkit-slider-thumb {
@@ -31,5 +38,8 @@
   scale: 1.5;
   aspect-ratio: 1;
   height: 12px;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }

@@ -26,7 +26,6 @@ const count = ref(0);
   <div class="bg-red-500 hover:scale-110 duration-300 ease-in-out">
     <a
       href="divbrary"
-      data-navigo
       class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
     >
       <i class="ri-quill-pen-fill"></i>

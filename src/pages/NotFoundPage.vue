@@ -6,10 +6,7 @@
     <img src="/images/404.png" width="250px" class="mx-auto" />
     <p class="mt-3 text-center">
       Rendez-vous à la
-      <router-link
-        to="/"
-        data-navigo
-        class="opacity-100 underline decoration-solid"
+      <router-link to="/" class="opacity-100 underline decoration-solid"
         >page d'accueil.</router-link
       >
     </p>

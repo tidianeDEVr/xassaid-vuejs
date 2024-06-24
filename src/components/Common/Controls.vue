@@ -14,7 +14,7 @@ function play() {
 <template>
   <div
     :class="[
-      'absolute bottom-0 left-0 w-full text-2xl controls duration-300 ease-in-out',
+      'absolute bottom-0 left-0 w-full text-2xl controls duration-300 ease-in-out z-50',
       { 'controls-out': !isOpened.valueOf() },
     ]"
   >
@@ -81,7 +81,7 @@ function play() {
             @click="toggle"
             class="close w-8 h-8 text-md flex items-center justify-center rounded-full bg-black/50 hover:bg-black/90 duration-300 ease-in-out hover:scale-110"
           >
-            <i class="ri-close-line" v-if="isOpened.valueOf()"></i>
+            <i class="ri-arrow-down-s-line" v-if="isOpened.valueOf()"></i>
             <i class="ri-arrow-up-s-line" v-else></i>
           </button>
         </div>

@@ -25,7 +25,7 @@ let slug = route.params.slug;
     </div>
   </div>
   <div class="px-4 gap-3 grid grid-cols-1 xl:grid-cols-2 pb-16 xl:pb-0">
-    <AudioTile v-for="(file, index) of badges" :index />
+    <AudioTile v-for="(file, index) of badges" :index :file />
   </div>
 </template>
 

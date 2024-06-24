@@ -14,15 +14,14 @@
         Xassaid
       </h2>
     </router-link>
-    <h3 class="ml-3 text-base opacity-80 mt-3">Découverte</h3>
-    <ul class="flex flex-col gap-2 mt-2">
+    <ul class="flex flex-col gap-2 mt-5">
       <li class="hover:scale-110 duration-300 ease-in-out w-full">
         <router-link
           activeClass="bg-green-500/40"
           to="/"
           class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
         >
-          <i class="ri-play-circle-fill"></i>
+          <i class="ri-home-smile-2-fill"></i>
           <span class="ml-3 font-title">Accueil</span>
         </router-link>
       </li>

@@ -7,11 +7,10 @@ import CategoryCard from "../components/audios/CategoryCard.vue";
   <div class="p-4 bg-gradient-to-b from-zinc-100/5 to-zinc-100/0">
     <div class="flex align-center justify-between">
       <h1 class="text-xl lg:text-2xl font-title font-bold">Mákk gnii</h1>
-      <a
-        href="/"
-        data-navigo
-        class="text-body bg-transparent font-bold opacity-60 text-sm"
-        >Tout afficher</a
+      <router-link
+        to="/"
+        class="text-body bg-transparent font-bold opacity-60 text-sm mt-1"
+        >Tout afficher</router-link
       >
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2 gap-4">
@@ -26,15 +25,14 @@ import CategoryCard from "../components/audios/CategoryCard.vue";
   <div class="p-4">
     <div class="flex align-center justify-between">
       <h1 class="text-xl lg:text-2xl font-title font-bold">Kourels yii</h1>
-      <a
-        href="/"
-        data-navigo
-        class="text-body bg-transparent font-bold opacity-60 text-sm"
-        >Tout afficher</a
+      <router-link
+        to="/"
+        class="text-body bg-transparent font-bold opacity-60 text-sm mt-1"
+        >Tout afficher</router-link
       >
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2 gap-4">
-      <a href="/" data-navigo class="bg-transparent">
+      <a href="/" class="bg-transparent">
         <div
           class="aspect-square rounded-md bg-cover bg-no-repeat bg-center overflow-hidden"
           style="background-image: url(../../images/ht.jpeg)"
@@ -56,15 +54,14 @@ import CategoryCard from "../components/audios/CategoryCard.vue";
   <div class="p-4">
     <div class="flex align-center justify-between">
       <h1 class="text-xl lg:text-2xl font-title font-bold">Rajass yii</h1>
-      <a
-        href="/"
-        data-navigo
-        class="text-body bg-transparent font-bold opacity-60 text-sm"
-        >Tout afficher</a
+      <router-link
+        to="/"
+        class="text-body bg-transparent font-bold opacity-60 text-sm mt-1"
+        >Tout afficher</router-link
       >
     </div>
     <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2 gap-4">
-      <a href="/" data-navigo class="bg-transparent">
+      <a href="/" class="bg-transparent">
         <div
           class="aspect-square rounded-md bg-cover bg-no-repeat bg-center overflow-hidden"
           style="background-image: url(../../images/ht.jpeg)"

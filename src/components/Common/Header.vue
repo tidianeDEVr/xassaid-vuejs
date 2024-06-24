@@ -18,62 +18,35 @@ function toggleMobileMenu() {
 
 <template>
   <div
-    class="absolute h-screen w-screen overlay z-50 bg-black/30 backdrop-blur-sm top-0 left-0"
-    v-if="isMobileMenuActive.valueOf()"
+    :class="[
+      'absolute w-screen overlay z-50 bg-black/30 backdrop-blur-sm top-0 left-0 flex duration-300 ease-in-out',
+      { hidden: !isMobileMenuActive },
+    ]"
     @click="toggleMobileMenu"
   >
-    <div class="w-60 bg-black h-full flex flex-col align-center">
-      <ul class="flex flex-col gap-2 mt-2">
-        <li class="hover:scale-110 duration-300 ease-in-out w-full">
-          <router-link
-            activeClass="bg-green-500/40"
-            to="/"
-            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
+    <div
+      class="w-60 bg-black h-screen place-content-center"
+      style="pointer-events: none; z-index: 99"
+    >
+      <ul
+        class="h-fit w-fit mx-auto font-title font-bold text-4xl flex flex-col gap-5"
+      >
+        <li>
+          <router-link to="/" activeClass="bg-green-500/40"
+            >Accueil</router-link
           >
-            <i class="ri-play-circle-fill"></i>
-            <span class="ml-3 font-title">Accueil</span>
-          </router-link>
         </li>
-        <li class="hover:scale-110 duration-300 ease-in-out">
-          <router-link
-            activeClass="bg-green-500/40"
-            to="/audios"
-            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
-          >
-            <i class="ri-rfid-fill"></i>
-            <span class="ml-3 font-title">Audios</span>
-          </router-link>
+        <li>
+          <router-link to="/">Audios</router-link>
         </li>
-        <li class="hover:scale-110 duration-300 ease-in-out">
-          <router-link
-            activeClass="bg-green-500/40"
-            to="/durus"
-            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
-          >
-            <i class="ri-quill-pen-fill"></i>
-            <span class="ml-3 font-title">Durus</span>
-          </router-link>
+        <li>
+          <router-link to="/">Durus</router-link>
         </li>
-
-        <li class="hover:scale-110 duration-300 ease-in-out">
-          <router-link
-            activeClass="bg-green-500/40"
-            to="/blog"
-            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
-          >
-            <i class="ri-function-fill"></i>
-            <span class="ml-3 font-title">Blog</span>
-          </router-link>
+        <li>
+          <router-link to="/">Blog</router-link>
         </li>
-        <li class="hover:scale-110 duration-300 ease-in-out">
-          <router-link
-            activeClass="bg-green-500/40"
-            to="/contact"
-            class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
-          >
-            <i class="ri-mail-fill"></i>
-            <span class="ml-3 font-title">Contact</span>
-          </router-link>
+        <li>
+          <router-link to="/">Contact</router-link>
         </li>
       </ul>
     </div>

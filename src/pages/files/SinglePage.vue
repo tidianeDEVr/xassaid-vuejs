@@ -37,7 +37,7 @@ function handleDocumentRender() {
         >Tout afficher</router-link
       >
     </div>
-    <div class="relative w-fit mx-auto pb-10 mt-4">
+    <div class="relative w-fit mx-auto pb-10 mt-4 xl:scale-150 xl:mt-24">
       <VuePdfEmbed
         :annotation-layer="true"
         :text-layer="true"
@@ -49,7 +49,7 @@ function handleDocumentRender() {
       />
       <div
         class="absolute z-30 top-0 w-full flex justify-between"
-        v-if="!isLoading.valueOf()"
+        v-if="!isLoading"
       >
         <button
           class="bg-gradient-to-r from-black/70 to-transparent h-[500px] text-3xl px-2"

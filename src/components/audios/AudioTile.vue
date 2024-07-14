@@ -17,12 +17,12 @@ defineProps<{ index: number }>();
           <i class="ri-play-line"></i>
         </button>
       </div>
-      <div>
+      <p class="leading-3">
         <span class="text-xl font-title">Midadi Kourel Hizbut</span><br />
         <span class="text-sm text-gray-500 font-body"
           >Cheikh Ahmadou Bamba Mbacké</span
         >
-      </div>
+      </p>
     </div>
     <span class="text-xl">21:57</span>
   </div>

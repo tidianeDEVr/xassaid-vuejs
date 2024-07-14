@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import AudioTile from "../../components/audios/AudioTile.vue";
+import AudioTile from "../../components/Audios/AudioTile.vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
 let badges = [

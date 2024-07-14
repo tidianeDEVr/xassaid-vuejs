@@ -1,6 +1,6 @@
 {
   "name": "web",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "build": "vue-tsc && vite build",
@@ -14,7 +14,8 @@
     "remixicon": "^4.3.0",
     "vue": "^3.4.21",
     "vue-pdf-embed": "^2.0.4",
-    "vuex": "^4.0.2"
+    "vuex": "^4.0.2",
+    "wavesurfer.js": "^7.8.0"
   },
   "devDependencies": {
     "@types/node": "^20.14.6",

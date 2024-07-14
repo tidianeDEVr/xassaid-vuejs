@@ -15,7 +15,7 @@ function play() {
   <div
     :class="[
       'absolute bottom-0 left-0 w-full text-2xl controls duration-300 ease-in-out z-50',
-      { 'controls-out': !isOpened.valueOf() },
+      { 'controls-out': !isOpened },
     ]"
   >
     <div
@@ -24,9 +24,7 @@ function play() {
       <div class="xl:flex xl:align-center xl:justify-between">
         <div class="flex-1 mx-3">
           <audio class="hidden" controls id="audio">
-            <source
-              src="/mp3/xassaid/midadi-kourel-hizbut-tarqiyyah-rufisque-ramadan-2021.mp3"
-            />
+            <source src="/mp3/xassaid/midadi.mp3" />
           </audio>
           <div class="flex flex-col">
             <p
@@ -81,7 +79,7 @@ function play() {
             @click="toggle"
             class="close w-8 h-8 text-md flex items-center justify-center rounded-full bg-black/50 hover:bg-black/90 duration-300 ease-in-out hover:scale-110"
           >
-            <i class="ri-arrow-down-s-line" v-if="isOpened.valueOf()"></i>
+            <i class="ri-arrow-down-s-line" v-if="isOpened"></i>
             <i class="ri-arrow-up-s-line" v-else></i>
           </button>
         </div>

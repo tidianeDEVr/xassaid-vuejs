@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import LoaderCard from "../components/Dumbs/LoaderCard.vue";
-import CategoryCard from "../components/audios/CategoryCard.vue";
+import CategoryCard from "../components/Audios/CategoryCard.vue";
 </script>
 
 <template>

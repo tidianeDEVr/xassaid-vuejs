@@ -10,7 +10,7 @@
         alt="Logo Xassaid"
         class="w-14"
       />
-      <h2 class="text-4xl mt-2 opacity-80 font-bold font-title italic">
+      <h2 class="text-4xl mt-2 opacity-100 font-bold font-title italic">
         Xassaid
       </h2>
     </router-link>

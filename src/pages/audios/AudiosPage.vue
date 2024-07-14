@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import CategoryCard from "../../components/audios/CategoryCard.vue";
-import AudioTile from "../../components/audios/AudioTile.vue";
+import CategoryCard from "../../components/Audios/CategoryCard.vue";
+import AudioTile from "../../components/Audios/AudioTile.vue";
 import Notiflix from "notiflix";
 function selectBadge() {
   Notiflix.Notify.warning("Cette fonctionnalité est bientôt disponible !");
@@ -39,6 +39,14 @@ let badges = [
     <div
       class="mt-4 gap-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pb-16 xl:pb-0"
     >
+      <AudioTile v-for="(file, index) of badges" :index />
+      <AudioTile v-for="(file, index) of badges" :index />
+      <AudioTile v-for="(file, index) of badges" :index />
+      <AudioTile v-for="(file, index) of badges" :index />
+      <AudioTile v-for="(file, index) of badges" :index />
+      <AudioTile v-for="(file, index) of badges" :index />
+      <AudioTile v-for="(file, index) of badges" :index />
+      <AudioTile v-for="(file, index) of badges" :index />
       <AudioTile v-for="(file, index) of badges" :index />
     </div>
   </div>

@@ -17,6 +17,15 @@
   }
 }
 
+body {
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+
+#app {
+  padding: 0.5rem;
+}
+
 :root {
   --xassida-green: #00bf63;
 }

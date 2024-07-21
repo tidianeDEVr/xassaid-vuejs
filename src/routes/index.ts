@@ -9,22 +9,25 @@ const AudiosPage = () => import("../pages/audios/AudiosPage.vue");
 const SerignePage = () => import("../pages/audios/SerignePage.vue");
 const ResultsPage = () => import("../pages/ResultsPage.vue");
 const SinglePage = () => import("../pages/files/SinglePage.vue");
-const BlogPage = () => import("../pages/blog/BlogPage.vue");
-const SingleBlogPage = () => import("../pages/blog/SinglePage.vue");
+const mainLayout = () => import("../layouts/MainLayout.vue");
 
 const routes = [
-  { path: "/", component: HomePage },
-  { path: "/blog", component: BlogPage },
-  { path: "/blog/:slug", component: SingleBlogPage },
-  { path: "/contact", component: ContactPage },
-  { path: "/audios", component: AudiosPage },
-  { path: "/audios/serigne/:slug", component: SerignePage },
-  { path: "/durus", component: DurusPage },
-  { path: "/durus/:slug", component: SinglePage },
+  {
+    path: "/",
+    component: mainLayout,
+    children: [
+      { path: "/", component: HomePage },
+      { path: "/contact", component: ContactPage },
+      { path: "/audios", component: AudiosPage },
+      { path: "/audios/serigne/:slug", component: SerignePage },
+      { path: "/durus", component: DurusPage },
+      { path: "/durus/:slug", component: SinglePage },
+      { path: "/results", component: ResultsPage },
+      { path: "/:pathMatch(.*)*", component: NotFoundPage },
+    ],
+  },
   { path: "/login", component: LoginPage },
   { path: "/register", component: RegisterPage },
-  { path: "/results", component: ResultsPage },
-  { path: "/:pathMatch(.*)*", component: NotFoundPage },
 ];
 
 const router = createRouter({

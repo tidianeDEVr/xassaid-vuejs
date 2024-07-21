@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CategoryCard from "../../components/Audios/CategoryCard.vue";
+// import CategoryCard from "../../components/Audios/CategoryCard.vue";
 import AudioTile from "../../components/Audios/AudioTile.vue";
 import Notiflix from "notiflix";
 function selectBadge() {
@@ -29,25 +29,21 @@ let badges = [
     <div
       class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-4 gap-4 overflow-scroll"
     >
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
+      CategoryCard CategoryCard CategoryCard CategoryCard CategoryCard
+      CategoryCard
     </div>
     <div
       class="mt-4 gap-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pb-16 xl:pb-0"
     >
-      <AudioTile v-for="(file, index) of badges" :index />
-      <AudioTile v-for="(file, index) of badges" :index />
-      <AudioTile v-for="(file, index) of badges" :index />
-      <AudioTile v-for="(file, index) of badges" :index />
-      <AudioTile v-for="(file, index) of badges" :index />
-      <AudioTile v-for="(file, index) of badges" :index />
-      <AudioTile v-for="(file, index) of badges" :index />
-      <AudioTile v-for="(file, index) of badges" :index />
-      <AudioTile v-for="(file, index) of badges" :index />
+      <AudioTile v-for="(file, index) of badges" :index :file />
+      <AudioTile v-for="(file, index) of badges" :index :file />
+      <AudioTile v-for="(file, index) of badges" :index :file />
+      <AudioTile v-for="(file, index) of badges" :index :file />
+      <AudioTile v-for="(file, index) of badges" :index :file />
+      <AudioTile v-for="(file, index) of badges" :index :file />
+      <AudioTile v-for="(file, index) of badges" :index :file />
+      <AudioTile v-for="(file, index) of badges" :index :file />
+      <AudioTile v-for="(file, index) of badges" :index :file />
     </div>
   </div>
 </template>

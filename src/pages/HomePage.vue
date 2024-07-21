@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import LoaderCard from "../components/Dumbs/LoaderCard.vue";
 import CategoryCard from "../components/Audios/CategoryCard.vue";
+import AudioService from "../services/AudioService";
+import { AudioCategory } from "../utils/interfaces";
+import { ref } from "vue";
+
+let categories = ref<AudioCategory[]>([]);
+let isLoading = ref(true);
+
+AudioService.getMainpage()
+  .then((res) => {
+    categories.value = res ?? [];
+  })
+  .finally(() => {
+    isLoading.value = false;
+  });
 </script>
 
 <template>
@@ -13,13 +27,22 @@ import CategoryCard from "../components/Audios/CategoryCard.vue";
         >Tout afficher</router-link
       >
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2 gap-4">
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
-      <CategoryCard />
+    <div
+      v-if="isLoading"
+      class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2 gap-4"
+    >
+      <LoaderCard />
+      <LoaderCard />
+      <LoaderCard />
+      <LoaderCard />
+      <LoaderCard />
+      <LoaderCard />
+    </div>
+    <div
+      v-else
+      class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-2 gap-4"
+    >
+      <CategoryCard v-for="category in categories" :category />
     </div>
   </div>
   <div class="p-4">

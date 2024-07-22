@@ -1,33 +1,64 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import FileTile from "../../components/Files/FileTile.vue";
 import FileService from "../../services/FileService";
 import { File } from "../../utils/interfaces";
 
 let files = ref<File[]>([]);
 let isLoading = ref(true);
+let isInitialized = false;
+let currentPage = ref(1);
 let isEnd = ref(false);
 
-FileService.getFiles(1)
+FileService.getFiles(currentPage.value)
   .then((res) => {
     files.value = res ?? [];
   })
   .finally(() => {
     isLoading.value = false;
+    isInitialized = true;
   });
 
-let options = {
-  root: document.querySelector("#main"),
-  rootMargin: "0px",
-  threshold: 1.0,
+const target = ref<HTMLElement | null>(null);
+
+const callback = (entries: IntersectionObserverEntry[]) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting && isInitialized) {
+      loadMore();
+    }
+  });
 };
 
-let observer = new IntersectionObserver(() => {
-  alert("load more visible !");
-}, options);
+const observer = new IntersectionObserver(callback, {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.5,
+});
 
-let target = document.querySelector("#loadMoreArea");
-if (target) observer.observe(target);
+function loadMore() {
+  currentPage.value += 1;
+  FileService.getFiles(currentPage.value)
+    .then((res) => {
+      if (res && res.length == 0) isEnd.value = true;
+      files.value = files.value.concat(res ?? []);
+    })
+    .finally(() => {
+      isLoading.value = false;
+      isInitialized = true;
+    });
+}
+
+onMounted(() => {
+  if (target.value) {
+    observer.observe(target.value);
+  }
+});
+
+onUnmounted(() => {
+  if (target.value) {
+    observer.unobserve(target.value);
+  }
+});
 </script>
 
 <template>
@@ -43,7 +74,7 @@ if (target) observer.observe(target);
     <div
       v-if="!isEnd"
       class="flex align-center justify-center mt-8 p-4"
-      id="loadMoreArea"
+      ref="target"
     >
       <div role="status">
         <svg
@@ -64,6 +95,9 @@ if (target) observer.observe(target);
         </svg>
         <span class="sr-only">Loading...</span>
       </div>
+    </div>
+    <div class="font-title text-2xl text-center pt-5" v-else>
+      Fin de liste !
     </div>
   </div>
 </template>

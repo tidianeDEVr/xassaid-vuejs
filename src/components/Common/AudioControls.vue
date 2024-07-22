@@ -23,13 +23,14 @@ function toggle() {
       class="container mx-auto max-w-5xl backdrop-blur-sm bg-green-500/50 rounded-t-lg py-2 px-4"
     >
       <audio-player
+        v-pre
         title="Midadi kourel hizbut tarqiyyah rufisque"
         src="./mp3/xassaid/midadi.mp3"
         bar-width="5"
         bar-gap="2"
         preload
-        autoplay
       ></audio-player>
+      <!-- autoplay -->
       <div class="absolute -top-4 right-2">
         <button
           @click="toggle"

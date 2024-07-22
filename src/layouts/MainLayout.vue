@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import Aside from "../components/Common/Aside.vue";
 import Header from "../components/Common/Header.vue";
-import Controls from "../components/Common/Controls.vue";
+import AudioControls from "../components/Common/AudioControls.vue";
 </script>
 
 <template>
-  <div class="grid grid-cols-12 gap-3">
+  <div class="grid grid-cols-12 gap-3 p-2">
     <div class="hidden col-span-2 xl:flex flex-col gap-3 lg:h-screen-minus-20">
       <Aside />
     </div>
@@ -15,7 +15,8 @@ import Controls from "../components/Common/Controls.vue";
       >
         <Header />
         <router-view></router-view>
-        <Controls />
+        <!-- <Controls /> -->
+        <AudioControls />
       </div>
     </div>
   </div>

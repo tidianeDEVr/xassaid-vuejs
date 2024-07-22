@@ -1,16 +1,31 @@
 <script setup lang="ts">
-// import { useRoute } from "vue-router";
+import FileService from "../../services/FileService";
 import VuePdfEmbed from "vue-pdf-embed";
 import { ref } from "vue";
+import { useRoute } from "vue-router";
+
 import "vue-pdf-embed/dist/style/index.css";
 import "vue-pdf-embed/dist/style/annotationLayer.css";
 import "vue-pdf-embed/dist/style/textLayer.css";
+import router from "../../routes";
+import { File } from "../../utils/interfaces";
 
-// const route = useRoute();
-// let slug = route.params.slug;
+const FILE_PATH_BASE = `${import.meta.env.VITE_XASSAID_BASE}/storage/files/`;
 let actualPage = ref(1);
 let pageCount = ref(0);
 let isLoading = ref(true);
+let file = ref<File | null>(null);
+const route = useRoute();
+const slug = ref(route.params.slug as string);
+if (!slug.value) router.push({ path: "/durus" });
+
+FileService.getFileBySlug(slug.value)
+  .then((res) => {
+    file.value = res ?? null;
+  })
+  .catch(() => {
+    router.push({ path: "/durus" });
+  });
 
 function previousPage() {
   if (actualPage.value == 1) return;
@@ -30,18 +45,24 @@ function handleDocumentRender() {
 <template>
   <div class="p-4 bg-gradient-to-b from-zinc-100/5 to-zinc-100/0">
     <div class="flex align-center justify-between">
-      <h1 class="text-xl lg:text-2xl font-title font-bold">Tawbatu Nasuh</h1>
+      <h1 class="text-xl lg:text-2xl font-title font-bold">
+        {{ file?.title }}
+      </h1>
       <router-link
         to="/durus"
         class="text-body bg-transparent font-bold opacity-60 text-sm mt-1"
         >Tout afficher</router-link
       >
     </div>
-    <div class="relative w-fit mx-auto pb-10 mt-4 xl:scale-150 xl:mt-24">
+
+    <div
+      class="relative w-fit mx-auto pb-10 mt-4 xl:scale-150 xl:mt-24"
+      v-if="file"
+    >
       <VuePdfEmbed
         :annotation-layer="true"
         :text-layer="true"
-        :source="'/pdf/TawbatuNasuh.pdf'"
+        :source="FILE_PATH_BASE + file.pathToFile"
         :page="actualPage"
         :height="500"
         @loaded="loaded"

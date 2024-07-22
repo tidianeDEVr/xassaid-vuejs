@@ -1,8 +1,8 @@
 {
   class AudioPlayer extends HTMLElement {
     playing = false;
-    volume = 1;
-    prevVolume = 1;
+    volume = 2;
+    prevVolume = 2;
     initialized = false;
     barWidth = 3;
     barGap = 1;
@@ -30,7 +30,7 @@
         "crossorigin",
         "loop",
         "preload",
-        "autoplay",
+        // "autoplay",
         // the name of the audio
         "title",
         // the size of the frequency bar

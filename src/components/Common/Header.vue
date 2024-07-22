@@ -17,6 +17,7 @@ function toggleMobileMenu() {
 </script>
 
 <template>
+  <!-- Mobile Menu Start -->
   <div
     :class="[
       'absolute w-screen overlay z-50 bg-black/30 backdrop-blur-sm top-0 left-0 flex duration-300 ease-in-out',
@@ -74,6 +75,7 @@ function toggleMobileMenu() {
       <i class="ri-close-line"></i>
     </button>
   </div>
+  <!-- Mobile Menu End -->
   <nav class="pt-4 px-4 flex align-center justify-between mb-4">
     <div class="flex justify-between xl:justify-normal w-full gap-5">
       <router-link

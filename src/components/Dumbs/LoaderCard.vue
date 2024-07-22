@@ -2,7 +2,7 @@
 <template>
   <div
     role="status"
-    class="bg-gray-300 aspect-square rounded-lg animate-pulse dark:bg-green-500/30 flex items-center justify-center"
+    class="bg-gray-300 aspect-square rounded-lg animate-pulse dark:bg-green-500/30 flex items-center justify-center border border-gray-200/20"
   >
     <div role="status">
       <svg

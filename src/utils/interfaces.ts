@@ -15,3 +15,11 @@ export interface File {
   title: string;
   pathToFile: string;
 }
+
+export interface Audio {
+  id: number;
+  slug: string;
+  title: string;
+  pathToFile: string;
+  category?: AudioCategory
+}

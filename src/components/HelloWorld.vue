@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref } from 'vue';
 
 defineProps<{ msg: string }>();
 
@@ -23,10 +23,10 @@ const count = ref(0);
       >create-vue</a
     >, the official Vue + Vite starter
   </p>
-  <div class="bg-red-500 hover:scale-110 duration-300 ease-in-out">
+  <div class="bg-red-500 duration-300 ease-in-out hover:scale-110">
     <a
       href="divbrary"
-      class="navigation-btn duration-500 ease-in-out rounded-md font-bold text-lg opacity-70 pl-4 py-2 w-full block"
+      class="navigation-btn block w-full rounded-md py-2 pl-4 text-lg font-bold opacity-70 duration-500 ease-in-out"
     >
       <i class="ri-quill-pen-fill"></i>
       <span class="ml-3 font-title">Bibliothèque</span>

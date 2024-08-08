@@ -1,36 +1,36 @@
 <script setup lang="ts">
-import { File } from "../../utils/interfaces";
+import { File } from '../../utils/interfaces';
 
 defineProps<{ index: number; file: File }>();
 </script>
 <template>
   <div
-    class="overflow-hidden ease-in-out duration-300 group px-4 py-2 border border-gray-200/30 bg-black flex align-center justify-between rounded-lg relative"
+    class="align-center group relative flex justify-between overflow-hidden rounded-lg border border-gray-200/30 bg-black px-4 py-2 duration-300 ease-in-out"
   >
     <div class="flex w-full">
-      <div class="mr-2 grid place-content-center relative">
+      <div class="relative mr-2 grid place-content-center">
         <div>
-          <span class="text-3xl lg:text-4xl font-title italic">
+          <span class="font-title text-2xl italic lg:text-3xl">
             {{ index + 1 }}.
           </span>
         </div>
       </div>
       <div style="line-height: 0px" class="ml-1 max-w-[190px] xl:max-w-[150px]">
         <p
-          class="text-xl font-title"
+          class="font-title text-xl"
           style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"
         >
           {{ file.title }}
         </p>
         <br />
-        <span class="text-sm text-gray-500 font-body w-11/12"
+        <span class="w-11/12 font-body text-sm text-gray-500"
           >Cheikh A. B. Mbacké</span
         >
       </div>
-      <div class="flex-grow flex justify-end">
+      <div class="flex flex-grow justify-end">
         <router-link
           :to="'/durus/' + file.slug"
-          class="flex bg-green-500/40 hover:bg-green-500/80 duration-300 ease-in-out w-12 h-12 items-center justify-center rounded-full text-2xl ml-1"
+          class="ml-1 flex h-12 w-12 items-center justify-center rounded-full bg-green-500/40 text-2xl duration-300 ease-in-out hover:bg-green-500/80"
           id="read-button"
           :title="`${file.title}`"
         >

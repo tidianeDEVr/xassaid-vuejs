@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
@@ -9,9 +9,38 @@
     <link rel="manifest" href="./site.webmanifest" />
     <link rel="stylesheet" href="./src/style.css" />
   </head>
-  <body class="bg-black text-white overflow-hidden">
+  <body class="overflow-hidden bg-black text-white">
     <div id="app"></div>
+
     <script type="module" src="/src/main.ts"></script>
     <noscript>Veuillez activer Javascript !</noscript>
+    <script>
+      var option_df_manual_book = {
+        backgroundColor: 'transparent',
+        soundEnable: false,
+        scrollWheel: false,
+        text: {
+          toggleSound: 'Activer / Désactiver le son',
+          toggleThumbnails: 'Basculer les vignettes',
+          toggleOutline: 'Basculer le contour / le signet',
+          previousPage: 'Page précédente',
+          nextPage: 'Page suivante',
+          toggleFullscreen: 'Basculer en plein écran',
+          zoomIn: 'Zoom avant',
+          zoomOut: 'Zoom arrière',
+          toggleHelp: "Basculer l'aide",
+
+          singlePageMode: 'Mode page unique',
+          doublePageMode: 'Mode Double Page',
+          downloadPDFFile: 'Télécharger le fichier PDF',
+          gotoFirstPage: 'Aller à la première page',
+          gotoLastPage: 'Aller à la dernière page',
+          play: 'Lecture automatique',
+          pause: 'Pause de la lecture automatique',
+
+          share: 'Partager',
+        },
+      };
+    </script>
   </body>
 </html>

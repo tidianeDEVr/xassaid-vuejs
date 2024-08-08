@@ -3,10 +3,10 @@
 <template class="p-0">
   <div
     style="background-image: url('/images/background-xassaid.svg')"
-    class="h-screen bg-no-repeat bg-left-top grid place-content-center"
+    class="grid h-screen place-content-center bg-left-top bg-no-repeat"
   >
     <div
-      class="bg-zinc-900 border border-gray-200/20 rounded-md h-fit p-5 flex flex-col"
+      class="flex h-fit flex-col rounded-md border border-gray-200/20 bg-zinc-900 p-5"
     >
       <h1>Register page</h1>
       <input type="text" />

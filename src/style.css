@@ -1,5 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap");
-@import "remixicon/fonts/remixicon.css";
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import 'remixicon/fonts/remixicon.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -43,8 +44,36 @@ body {
   scale: 1.5;
   aspect-ratio: 1;
   height: 12px;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  box-shadow:
+    rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px,
+    rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px,
+    rgba(0, 0, 0, 0.09) 0px -3px 5px;
   border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+::-webkit-scrollbar {
+  width: 12px; 
+  height: 12px; 
+}
+
+
+::-webkit-scrollbar-thumb {
+  background-color: hsla(151, 100%, 37%, 0.5); 
+  border-radius: 10px; 
+  border: 2px solid transparent; 
+  background-clip: content-box; 
+}
+
+
+::-webkit-scrollbar-track {
+  background-color: #18181B; 
+  border-radius: 10px; 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; 
 }

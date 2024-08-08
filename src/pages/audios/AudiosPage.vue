@@ -1,49 +1,52 @@
 <script setup lang="ts">
-// import CategoryCard from "../../components/Audios/CategoryCard.vue";
-import AudioTile from "../../components/Audios/AudioTile.vue";
-import Notiflix from "notiflix";
+import AudioTile from '../../components/Audios/AudioTile.vue';
+import Notiflix from 'notiflix';
+import AudioService from '../../services/AudioService';
+import CategoryCard from '../../components/Audios/CategoryCard.vue';
+import { Audio, AudioCategory } from '../../utils/interfaces';
+import { ref } from 'vue';
 function selectBadge() {
-  Notiflix.Notify.warning("Cette fonctionnalité est bientôt disponible !");
+  Notiflix.Notify.warning('Cette fonctionnalité est bientôt disponible !');
 }
 let badges = [
-  "Djangum 61",
-  "Djangum 71",
-  "Djangum 78",
-  "Tawil",
-  "Bassite",
-  "Sokhna Fat Dia",
+  'Djangum 61',
+  'Djangum 71',
+  'Djangum 78',
+  'Tawil',
+  'Bassite',
+  'Sokhna Fat Dia',
 ];
+let categories = ref<AudioCategory[]>([]);
+let audios = ref<Audio[]>([]);
+
+initialize();
+
+function initialize(){
+  AudioService.getAudiopage().then((res)=>{
+    if(res && res.categories) categories.value = res.categories;
+    if(res && res.audios) audios.value = res.audios;
+  });
+}
 </script>
 
 <template>
-  <div class="p-4 bg-gradient-to-b from-zinc-100/5 to-zinc-100/0">
-    <h1 class="text-xl lg:text-2xl font-title font-bold">Audios</h1>
-    <div class="flex mt-2 overflow-scroll no-scrollbar">
+  <div class="bg-gradient-to-b from-zinc-100/5 to-zinc-100/0 p-4">
+    <h1 class="font-title text-xl font-bold lg:text-2xl">Audios</h1>
+    <div class="no-scrollbar mt-2 flex overflow-scroll">
       <span
-        class="bg-green-500/40 text-white text-xs font-medium mr-2 px-3 py-1 text-nowrap rounded-full cursor-pointer"
+        class="mr-2 cursor-pointer text-nowrap rounded-full bg-green-500/40 px-3 py-1 text-xs font-medium text-white"
         @click="selectBadge"
         v-for="badge of badges"
         >{{ badge }}</span
       >
     </div>
     <div
-      class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 mt-4 gap-4 overflow-scroll"
+      class="mt-4 flex gap-4 overflow-x-scroll pb-2"
     >
-      CategoryCard CategoryCard CategoryCard CategoryCard CategoryCard
-      CategoryCard
+      <CategoryCard v-for="category of categories" :category/>
     </div>
-    <div
-      class="mt-4 gap-3 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 pb-16 xl:pb-0"
-    >
-      <AudioTile v-for="(file, index) of badges" :index :file />
-      <AudioTile v-for="(file, index) of badges" :index :file />
-      <AudioTile v-for="(file, index) of badges" :index :file />
-      <AudioTile v-for="(file, index) of badges" :index :file />
-      <AudioTile v-for="(file, index) of badges" :index :file />
-      <AudioTile v-for="(file, index) of badges" :index :file />
-      <AudioTile v-for="(file, index) of badges" :index :file />
-      <AudioTile v-for="(file, index) of badges" :index :file />
-      <AudioTile v-for="(file, index) of badges" :index :file />
+    <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+      <AudioTile v-for="(audio, index) of audios" :index :audio />
     </div>
   </div>
 </template>

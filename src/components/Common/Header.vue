@@ -1,15 +1,11 @@
 <script setup lang="ts">
-import Notiflix from "notiflix";
-import { ref } from "vue";
+import { ref } from 'vue';
 let isMobileMenuActive = ref(false);
 function goBack() {
   window.history.back();
 }
 function goForward() {
   window.history.forward();
-}
-function warn() {
-  Notiflix.Notify.warning("Cette fonctionnalité est bientôt disponible !");
 }
 function toggleMobileMenu() {
   isMobileMenuActive.value = !isMobileMenuActive.value;
@@ -20,16 +16,16 @@ function toggleMobileMenu() {
   <!-- Mobile Menu Start -->
   <div
     :class="[
-      'absolute w-screen overlay z-50 bg-black/30 backdrop-blur-sm top-0 left-0 flex duration-300 ease-in-out',
-      { hidden: !isMobileMenuActive },
+      'overlay absolute right-0 top-0 z-50 flex w-screen bg-black/30 backdrop-blur-sm duration-300 ease-in-out',
+      { closed: !isMobileMenuActive },
     ]"
   >
     <div
-      class="w-60 bg-black h-screen place-content-center"
+      class="h-screen w-60 place-content-center bg-black"
       style="z-index: 99"
     >
       <ul
-        class="h-fit w-fit mx-auto font-title font-bold text-4xl flex flex-col gap-7"
+        class="mx-auto flex h-fit w-fit flex-col gap-7 font-title text-4xl font-bold"
       >
         <li>
           <router-link
@@ -71,59 +67,59 @@ function toggleMobileMenu() {
         <li></li>
       </ul>
     </div>
-    <button @click="toggleMobileMenu" class="absolute top-5 right-5 text-6xl">
+    <button @click="toggleMobileMenu" class="absolute right-5 top-5 text-6xl">
       <i class="ri-close-line"></i>
     </button>
   </div>
   <!-- Mobile Menu End -->
-  <nav class="pt-4 px-4 flex align-center justify-between mb-4">
-    <div class="flex justify-between xl:justify-normal w-full gap-5">
+  <nav class="align-center mb-4 flex justify-between px-4 pt-4">
+    <div class="flex w-full justify-between gap-5 xl:justify-normal">
       <router-link
         to="/"
-        class="flex xl:hidden items-center justify-center bg-transparent gap-3"
+        class="flex items-center justify-center gap-3 bg-transparent xl:hidden"
       >
         <img
           src="../../assets/images/logo-xassaid.png"
           alt="Logo Xassaid"
           class="w-10"
         />
-        <h2 class="text-2xl mt-2 opacity-80 font-bold font-title italic">
+        <h2 class="mt-2 font-title text-2xl font-bold italic opacity-80">
           Xassaid
         </h2>
       </router-link>
-      <div class="hidden xl:flex gap-2">
+      <div class="hidden gap-2 xl:flex">
         <button
-          class="bg-green-500/20 w-10 h-10 rounded-full hover:bg-green-500/40 duration-300 ease-in-out"
+          class="h-10 w-10 rounded-full bg-green-500/20 duration-300 ease-in-out hover:bg-green-500/40"
           id="history-forward-btn"
           @click="goBack"
         >
           <i class="ri-arrow-left-s-line text-2xl"></i>
         </button>
         <button
-          class="bg-green-500/20 w-10 h-10 rounded-full hover:bg-green-500/40 duration-300 ease-in-out"
+          class="h-10 w-10 rounded-full bg-green-500/20 duration-300 ease-in-out hover:bg-green-500/40"
           id="history-next-btn"
           @click="goForward"
         >
           <i class="ri-arrow-right-s-line text-2xl"></i>
         </button>
       </div>
-      <div class="font-title flex">
-        <div class="h-full relative hidden md:block">
+      <div class="flex font-title">
+        <div class="relative hidden h-full md:block">
           <input
             type="text"
             placeholder="Veuillez saisir pour rechercher..."
-            class="h-full px-4 bg-green-500/20 rounded-full w-80 focus:bg-green-500/40 outline-none duration-300 ease-in-out"
+            class="h-full w-80 rounded-full bg-green-500/20 px-4 outline-none duration-300 ease-in-out focus:bg-green-500/40"
           />
           <button
-            class="pr-4 absolute inset-y-0 right-0 duration-300 ease-in-out hover:scale-125"
+            class="absolute inset-y-0 right-0 pr-4 duration-300 ease-in-out hover:scale-125"
           >
             <i class="ri-search-line"></i>
           </button>
         </div>
-        <div class="flex align-center xl:hidden">
+        <div class="align-center flex xl:hidden">
           <!-- Mobile Search Here -->
           <button
-            class="text-xl ml-3 bg-green-500/20 px-3 aspect-square rounded-full"
+            class="ml-3 aspect-square rounded-full bg-green-500/20 px-3 text-xl"
             @click="toggleMobileMenu"
           >
             <i class="ri-menu-line"></i>
@@ -131,25 +127,29 @@ function toggleMobileMenu() {
         </div>
       </div>
     </div>
-    <div class="hidden xl:flex gap-3 font-title">
-      <button
-        class="bg-black hover:bg-green-500/40 duration-300 ease-in-out px-5 rounded-full"
+    <div class="hidden gap-3 font-title xl:flex">
+      <router-link
+        class="grid place-content-center rounded-full bg-black px-5 duration-300 ease-in-out hover:bg-green-500/40"
         id="register-btn"
-        @click="warn"
+        to="/register"
       >
         S'inscrire
-      </button>
-      <button
-        class="whitespace-nowrap bg-white text-black hover:text-white hover:bg-green-500/40 duration-300 ease-in-out px-5 rounded-full"
+      </router-link>
+      <router-link
+        class="grid place-content-center whitespace-nowrap rounded-full bg-white px-5 text-black duration-300 ease-in-out hover:bg-green-500/40 hover:text-white"
         id="login-btn"
-        @click="warn"
+        to="/login"
       >
         Se connecter
-      </button>
+      </router-link>
     </div>
 
     <!-- Mobile Drawer -->
   </nav>
 </template>
 
-<style scoped></style>
+<style scoped>
+.closed {
+  right: 100%;
+}
+</style>

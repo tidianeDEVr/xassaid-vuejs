@@ -10,14 +10,15 @@
   "dependencies": {
     "@vue/language-core": "^2.0.21",
     "dotenv": "^16.4.5",
+    "eslint-config-prettier": "^9.1.0",
     "notiflix": "^3.2.7",
     "pdfjs-dist": "^4.4.168",
+    "prettier": "^3.3.3",
+    "prettier-plugin-tailwindcss": "^0.6.5",
     "register-service-worker": "^1.7.2",
     "remixicon": "^4.3.0",
     "vue": "^3.4.21",
-    "vue-pdf-embed": "^2.0.4",
-    "vuex": "^4.0.2",
-    "wavesurfer.js": "^7.8.0"
+    "vuex": "^4.0.2"
   },
   "devDependencies": {
     "@types/node": "^20.14.6",

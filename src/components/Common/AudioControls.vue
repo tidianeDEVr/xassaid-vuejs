@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref } from "vue";
-const script = document.createElement("script");
-script.src = "./scripts/audio-player.js";
+import { ref } from 'vue';
+const script = document.createElement('script');
+script.src = '/scripts/audio-player.js';
 script.onload = () => {
-  console.log("audio-player component loaded");
+  console.log('audio-player component loaded');
 };
 document.head.appendChild(script);
 let isOpened = ref(true);
@@ -15,17 +15,17 @@ function toggle() {
 <template>
   <div
     :class="[
-      'fixed bottom-0 left-0 w-full text-2xl controls duration-300 ease-in-out z-50',
+      'controls fixed bottom-0 left-0 z-50 w-full text-2xl duration-300 ease-in-out',
       { 'controls-out': !isOpened },
     ]"
   >
     <div
-      class="container mx-auto max-w-5xl backdrop-blur-sm bg-green-500/50 rounded-t-lg py-2 px-4"
+      class="container mx-auto max-w-5xl rounded-t-lg bg-green-500/50 px-4 py-2 backdrop-blur-sm"
     >
       <audio-player
         v-pre
         title="Midadi kourel hizbut tarqiyyah rufisque"
-        src="./mp3/xassaid/midadi.mp3"
+        src="/mp3/xassaid/midadi.mp3"
         bar-width="5"
         bar-gap="2"
         preload
@@ -34,7 +34,7 @@ function toggle() {
       <div class="absolute -top-4 right-2">
         <button
           @click="toggle"
-          class="close w-8 h-8 text-md flex items-center justify-center rounded-full bg-black/50 hover:bg-black/90 duration-300 ease-in-out hover:scale-110"
+          class="close text-md flex h-8 w-8 items-center justify-center rounded-full bg-black/50 duration-300 ease-in-out hover:scale-110 hover:bg-black/90"
         >
           <i class="ri-arrow-down-s-line" v-if="isOpened"></i>
           <i class="ri-arrow-up-s-line" v-else></i>

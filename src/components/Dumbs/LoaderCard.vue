@@ -2,12 +2,12 @@
 <template>
   <div
     role="status"
-    class="bg-gray-300 aspect-square rounded-lg animate-pulse dark:bg-green-500/30 flex items-center justify-center border border-gray-200/20"
+    class="flex aspect-square animate-pulse items-center justify-center rounded-lg border border-gray-200/20 bg-gray-300 dark:bg-green-500/30"
   >
     <div role="status">
       <svg
         aria-hidden="true"
-        class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-green-500"
+        class="inline h-8 w-8 animate-spin fill-green-500 text-gray-200 dark:text-gray-600"
         viewBox="0 0 100 101"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"

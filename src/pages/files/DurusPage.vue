@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from "vue";
-import FileTile from "../../components/Files/FileTile.vue";
-import FileService from "../../services/FileService";
-import { File } from "../../utils/interfaces";
+import { ref, onMounted, onUnmounted } from 'vue';
+import FileTile from '../../components/Files/FileTile.vue';
+import FileService from '../../services/FileService';
+import { File } from '../../utils/interfaces';
 
 let files = ref<File[]>([]);
 let isLoading = ref(true);
@@ -31,7 +31,7 @@ const callback = (entries: IntersectionObserverEntry[]) => {
 
 const observer = new IntersectionObserver(callback, {
   root: null,
-  rootMargin: "0px",
+  rootMargin: '0px',
   threshold: 0.5,
 });
 
@@ -63,23 +63,23 @@ onUnmounted(() => {
 
 <template>
   <div
-    class="p-4 pb-10 bg-gradient-to-b from-zinc-100/5 to-zinc-100/0"
+    class="bg-gradient-to-b from-zinc-100/5 to-zinc-100/0 p-4 pb-10"
     id="main"
   >
-    <h1 class="text-xl lg:text-2xl font-title font-bold">Durus</h1>
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 mt-2 gap-4">
+    <h1 class="font-title text-xl font-bold lg:text-2xl">Durus</h1>
+    <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
       <FileTile v-for="(file, index) of files" :file :index />
     </div>
     <!-- Load More -->
     <div
       v-if="!isEnd"
-      class="flex align-center justify-center mt-8 p-4"
+      class="align-center mt-8 flex justify-center p-4"
       ref="target"
     >
       <div role="status">
         <svg
           aria-hidden="true"
-          class="inline w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-green-500"
+          class="inline h-8 w-8 animate-spin fill-green-500 text-gray-200 dark:text-gray-600"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +96,7 @@ onUnmounted(() => {
         <span class="sr-only">Loading...</span>
       </div>
     </div>
-    <div class="font-title text-2xl text-center pt-5" v-else>
+    <div class="pt-5 text-center font-title text-2xl" v-else>
       Fin de liste !
     </div>
   </div>

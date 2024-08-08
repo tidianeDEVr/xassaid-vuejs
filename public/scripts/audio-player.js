@@ -8,16 +8,16 @@
     barGap = 1;
     bufferPercentage = 75;
     nonAudioAttributes = new Set([
-      "title",
-      "bar-width",
-      "bar-gap",
-      "buffer-percentage",
+      'title',
+      'bar-width',
+      'bar-gap',
+      'buffer-percentage',
     ]);
 
     constructor() {
       super();
 
-      this.attachShadow({ mode: "open" });
+      this.attachShadow({ mode: 'open' });
       this.render();
     }
 
@@ -25,45 +25,45 @@
       return [
         // audio tag attributes
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/audio
-        "src",
-        "muted",
-        "crossorigin",
-        "loop",
-        "preload",
+        'src',
+        'muted',
+        'crossorigin',
+        'loop',
+        'preload',
         // "autoplay",
         // the name of the audio
-        "title",
+        'title',
         // the size of the frequency bar
-        "bar-width",
+        'bar-width',
         // the size of the gap between the bars
-        "bar-gap",
+        'bar-gap',
         // the percentage of the frequency buffer data to represent
         // if the dataArray contains 1024 data points only a percentage of data will
         // be used to draw on the canvas
-        "buffer-percentage",
+        'buffer-percentage',
       ];
     }
 
     async attributeChangedCallback(name, oldValue, newValue) {
       switch (name) {
-        case "src":
+        case 'src':
           this.initialized = false;
           this.render();
           this.initializeAudio();
           break;
-        case "muted":
-          this.toggleMute(Boolean(this.audio?.getAttribute("muted")));
+        case 'muted':
+          this.toggleMute(Boolean(this.audio?.getAttribute('muted')));
           break;
-        case "title":
+        case 'title':
           this.titleElement.textContent = newValue;
           break;
-        case "bar-width":
+        case 'bar-width':
           this.barWidth = Number(newValue) || 3;
           break;
-        case "bar-gap":
+        case 'bar-gap':
           this.barGap = Number(newValue) || 1;
           break;
-        case "buffer-percentage":
+        case 'buffer-percentage':
           this.bufferPercentage = Number(newValue) || 75;
           break;
         default:
@@ -78,7 +78,7 @@
       // if the attribute was explicitly set on the audio-player tag
       // set it otherwise remove it
       if (this.attributes.getNamedItem(name)) {
-        this.audio.setAttribute(name, value ?? "");
+        this.audio.setAttribute(name, value ?? '');
       } else {
         this.audio.removeAttribute(name);
       }
@@ -105,6 +105,25 @@
         .connect(this.audioCtx.destination);
 
       this.changeVolume();
+
+      const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+              // Your custom logic when `src` changes
+              try {
+                if(this.playing) this.audio.pause();
+                setTimeout(() => {
+                  this.audio.play();
+                }, 50);
+              } catch (error) {
+                
+              }
+            }
+          }
+      });
+
+      observer.observe(this.audio, { attributes: true });
+
     }
 
     updateFrequency() {
@@ -113,7 +132,7 @@
       this.analyserNode.getByteFrequencyData(this.dataArray);
 
       this.canvasCtx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-      this.canvasCtx.fillStyle = "rgba(0, 0, 0, 0)";
+      this.canvasCtx.fillStyle = 'rgba(0, 0, 0, 0)';
       this.canvasCtx.fillRect(0, 0, this.canvas.width, this.canvas.height);
 
       const barCount =
@@ -147,82 +166,82 @@
 
     attachEvents() {
       this.volumeBar.parentNode.addEventListener(
-        "click",
+        'click',
         (e) => {
           if (e.target === this.volumeBar.parentNode) {
             this.toggleMute();
           }
         },
-        false
+        false,
       );
 
       this.playPauseBtn.addEventListener(
-        "click",
+        'click',
         this.togglePlay.bind(this),
-        false
+        false,
       );
 
       this.volumeBar.addEventListener(
-        "input",
+        'input',
         this.changeVolume.bind(this),
-        false
+        false,
       );
 
       this.progressBar.addEventListener(
-        "input",
+        'input',
         (e) => this.seekTo(this.progressBar.value),
-        false
+        false,
       );
 
-      this.audio.addEventListener("loadedmetadata", () => {
+      this.audio.addEventListener('loadedmetadata', () => {
         this.progressBar.max = this.audio.duration;
         this.durationEl.textContent = this.getTimeString(this.audio.duration);
         this.updateAudioTime();
       });
 
-      this.audio.addEventListener("error", (e) => {
+      this.audio.addEventListener('error', (e) => {
         this.titleElement.textContent = this.audio.error.message;
         this.playPauseBtn.disabled = true;
       });
 
-      this.audio.addEventListener("timeupdate", () => {
+      this.audio.addEventListener('timeupdate', () => {
         this.updateAudioTime(this.audio.currentTime);
       });
 
       this.audio.addEventListener(
-        "ended",
+        'ended',
         () => {
           this.playing = false;
-          this.playPauseBtn.textContent = "play";
-          this.playPauseBtn.classList.remove("playing");
+          this.playPauseBtn.textContent = 'play';
+          this.playPauseBtn.classList.remove('playing');
         },
-        false
+        false,
       );
 
       this.audio.addEventListener(
-        "pause",
+        'pause',
         () => {
           this.playing = false;
-          this.playPauseBtn.textContent = "play";
-          this.playPauseBtn.classList.remove("playing");
+          this.playPauseBtn.textContent = 'play';
+          this.playPauseBtn.classList.remove('playing');
         },
-        false
+        false,
       );
 
       this.audio.addEventListener(
-        "play",
+        'play',
         () => {
           this.playing = true;
-          this.playPauseBtn.textContent = "pause";
-          this.playPauseBtn.classList.add("playing");
+          this.playPauseBtn.textContent = 'pause';
+          this.playPauseBtn.classList.add('playing');
           this.updateFrequency();
         },
-        false
+        false,
       );
     }
 
     async togglePlay() {
-      if (this.audioCtx.state === "suspended") {
+      if (this.audioCtx.state === 'suspended') {
         await this.audioCtx.resume();
       }
 
@@ -234,7 +253,7 @@
     }
 
     getTimeString(time) {
-      const secs = `${parseInt(`${time % 60}`, 10)}`.padStart(2, "0");
+      const secs = `${parseInt(`${time % 60}`, 10)}`.padStart(2, '0');
       const min = parseInt(`${(time / 60) % 60}`, 10);
 
       return `${min}:${secs}`;
@@ -244,11 +263,11 @@
       this.volume = Number(this.volumeBar.value);
 
       if (Number(this.volume) > 1) {
-        this.volumeBar.parentNode.className = "volume-bar over";
+        this.volumeBar.parentNode.className = 'volume-bar over';
       } else if (Number(this.volume) > 0) {
-        this.volumeBar.parentNode.className = "volume-bar half";
+        this.volumeBar.parentNode.className = 'volume-bar half';
       } else {
-        this.volumeBar.parentNode.className = "volume-bar";
+        this.volumeBar.parentNode.className = 'volume-bar';
       }
 
       if (this.gainNode) {
@@ -268,7 +287,7 @@
     updateAudioTime() {
       this.progressBar.value = this.audio.currentTime;
       this.currentTimeEl.textContent = this.getTimeString(
-        this.audio.currentTime
+        this.audio.currentTime,
       );
     }
 
@@ -320,7 +339,7 @@
               width: 30px;
               min-width: 30px;
               height: 30px;
-              background: url("./images/audio-player-icon-sprite.png") 0 center/500% 100% no-repeat;
+              background: url("/images/audio-player-icon-sprite.png") 0 center/500% 100% no-repeat;
               appearance: none;
               border: none;
               text-indent: -999999px;
@@ -328,22 +347,22 @@
           }
           
           .play-btn.playing {
-              background: url("./images/audio-player-icon-sprite.png") 25% center/500% 100% no-repeat;
+              background: url("/images/audio-player-icon-sprite.png") 25% center/500% 100% no-repeat;
           }
           
           .volume-bar {
               width: 30px;
               min-width: 30px;
               height: 30px;
-              background: url("./images/audio-player-icon-sprite.png") 50% center/500% 100% no-repeat;
+              background: url("/images/audio-player-icon-sprite.png") 50% center/500% 100% no-repeat;
               position: relative;
           }
           
           .volume-bar.half {
-              background: url("./images/audio-player-icon-sprite.png") 75% center/500% 100% no-repeat;
+              background: url("/images/audio-player-icon-sprite.png") 75% center/500% 100% no-repeat;
           }
           .volume-bar.over {
-              background: url("./images/audio-player-icon-sprite.png") 100% center/500% 100% no-repeat;
+              background: url("/images/audio-player-icon-sprite.png") 100% center/500% 100% no-repeat;
           }
           
           .volume-field {
@@ -464,7 +483,7 @@
          ${this.style()}
           <figure class="audio-player">
             <figcaption class="audio-name"></figcaption>
-            <audio style="display: none"></audio>
+            <audio style="display: none" crossorigin='anonymous'></audio>
             <button class="play-btn" type="button">play</button>
             <div class="progress-indicator">
                 <span class="current-time">0:0</span>
@@ -480,26 +499,26 @@
           </figure>
         `;
 
-      this.audio = this.shadowRoot.querySelector("audio");
-      this.playPauseBtn = this.shadowRoot.querySelector(".play-btn");
-      this.titleElement = this.shadowRoot.querySelector(".audio-name");
-      this.volumeBar = this.shadowRoot.querySelector(".volume-field");
+      this.audio = this.shadowRoot.querySelector('audio');
+      this.playPauseBtn = this.shadowRoot.querySelector('.play-btn');
+      this.titleElement = this.shadowRoot.querySelector('.audio-name');
+      this.volumeBar = this.shadowRoot.querySelector('.volume-field');
       this.progressIndicator = this.shadowRoot.querySelector(
-        ".progress-indicator"
+        '.progress-indicator',
       );
       this.currentTimeEl = this.progressIndicator.children[0];
       this.progressBar = this.progressIndicator.children[1];
       this.durationEl = this.progressIndicator.children[2];
-      this.canvas = this.shadowRoot.querySelector("canvas");
+      this.canvas = this.shadowRoot.querySelector('canvas');
 
-      this.canvasCtx = this.canvas.getContext("2d");
+      this.canvasCtx = this.canvas.getContext('2d');
       // support retina display on canvas for a more crispy/HD look
       const scale = window.devicePixelRatio;
       this.canvas.width = Math.floor(this.canvas.width * scale);
       this.canvas.height = Math.floor(this.canvas.height * scale);
-      this.titleElement.textContent = this.attributes.getNamedItem("src")
-        ? this.attributes.getNamedItem("title").value ?? "untitled"
-        : "No Audio Source Provided";
+      this.titleElement.textContent = this.attributes.getNamedItem('src')
+        ? (this.attributes.getNamedItem('title').value ?? 'untitled')
+        : 'No Audio Source Provided';
       this.volumeBar.value = this.volume;
 
       // if rendering or re-rendering all audio attributes need to be reset
@@ -512,5 +531,5 @@
     }
   }
 
-  customElements.define("audio-player", AudioPlayer);
+  customElements.define('audio-player', AudioPlayer);
 }

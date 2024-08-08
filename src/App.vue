@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import Notiflix from "notiflix";
+import Notiflix from 'notiflix';
 
 Notiflix.Notify.init({
-  width: "300px",
-  position: "right-bottom",
+  width: '300px',
+  position: 'right-bottom',
   closeButton: false,
 });
 </script>

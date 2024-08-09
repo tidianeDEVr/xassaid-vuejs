@@ -76,7 +76,7 @@ function initialize() {
         webgl="true"
         height="500"
         id="df_manual_book"
-        source="https://files.xassaid.com/files/01-quran1-ar.pdf"
+        :source="'https://files.xassaid.com/files/' + file?.pathToFile"
       ></div>
       <!-- :source="getPath()" -->
     </div>

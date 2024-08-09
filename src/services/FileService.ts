@@ -17,7 +17,11 @@ export default {
       const data = await response.json();
       return data;
     } catch (error) {
-      Notiflix.Notify.failure("Une erreur s'est produite !");
+      Notiflix.Report.failure(
+        'Erreur',
+        "Une erreur s'est produite lors de la récupération des données !",
+        'OK',
+      );
       console.error('There was an error fetching the files!', error);
     }
   },
@@ -34,7 +38,11 @@ export default {
       const data = await response.json();
       return data;
     } catch (error) {
-      Notiflix.Notify.failure("Une erreur s'est produite !");
+      Notiflix.Report.failure(
+        'Erreur',
+        "Une erreur s'est produite lors de la récupération des données !",
+        'OK',
+      );
       console.error('There was an error fetching the files!', error);
     }
   },

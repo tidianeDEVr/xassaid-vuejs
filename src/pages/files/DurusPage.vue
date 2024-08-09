@@ -67,7 +67,9 @@ onUnmounted(() => {
     id="main"
   >
     <h1 class="font-title text-xl font-bold lg:text-2xl">Durus</h1>
-    <div class="mt-2 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4">
+    <div
+      class="mt-2 grid grid-cols-1 gap-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-4"
+    >
       <FileTile v-for="(file, index) of files" :file :index />
     </div>
     <!-- Load More -->

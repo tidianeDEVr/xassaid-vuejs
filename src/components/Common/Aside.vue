@@ -135,7 +135,7 @@
           •
         </p>
       </div>
-      <p class="text-center">
+      <p class="text-center" style="z-index: 999999">
         Réalisé par
         <a class="underline" href="https://linktr.ee/tidiane_" target="_blank"
           >Tidiane.</a

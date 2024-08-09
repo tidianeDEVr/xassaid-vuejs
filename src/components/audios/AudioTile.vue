@@ -4,7 +4,7 @@ import { Audio } from '../../utils/interfaces';
 
 defineProps<{ index: number; audio: Audio }>();
 
-function playAudio(audio:Audio) {
+function playAudio(audio: Audio) {
   AudioService.playAudio(audio);
 }
 </script>
@@ -14,11 +14,9 @@ function playAudio(audio:Audio) {
   >
     <div class="flex w-full">
       <div class="relative mr-2 grid place-content-center">
-        <div>
-          <span class="font-title text-3xl italic lg:text-4xl">
-            {{ index + 1 }}.
-          </span>
-        </div>
+        <span class="font-title text-3xl italic lg:text-4xl">
+          {{ index + 1 }}.
+        </span>
       </div>
       <div style="line-height: 0px" class="ml-1 max-w-[190px] xl:max-w-[150px]">
         <p
@@ -28,9 +26,9 @@ function playAudio(audio:Audio) {
           {{ audio.title }}
         </p>
         <br />
-        <span class="w-11/12 font-body text-sm text-gray-500"
-          >{{ audio.category?.title }}</span
-        >
+        <span class="w-11/12 font-body text-sm text-gray-500">{{
+          audio.category?.title
+        }}</span>
       </div>
       <div class="flex flex-grow justify-end">
         <button

@@ -21,7 +21,7 @@ function toggleMobileMenu() {
     ]"
   >
     <div
-      class="h-screen w-60 place-content-center bg-black"
+      class="relative h-screen w-60 place-content-center bg-black"
       style="z-index: 99"
     >
       <ul
@@ -65,6 +65,17 @@ function toggleMobileMenu() {
         <li></li>
         <li></li>
         <li></li>
+        <div class="absolute bottom-20">
+          <p class="text-center text-sm font-light">
+            Réalisé par
+            <a
+              class="underline"
+              href="https://linktr.ee/tidiane_"
+              target="_blank"
+              >Tidiane.</a
+            >
+          </p>
+        </div>
       </ul>
     </div>
     <button @click="toggleMobileMenu" class="absolute right-5 top-5 text-6xl">

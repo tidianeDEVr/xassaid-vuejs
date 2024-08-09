@@ -11,7 +11,7 @@ import AudioControls from '../components/Common/AudioControls.vue';
     </div>
     <div class="h-screen-minus-20 col-span-12 xl:col-span-10">
       <div
-        class="h-full overflow-scroll rounded-md border border-gray-200/20 bg-zinc-900"
+        class="h-full overflow-y-scroll rounded-md border border-gray-200/20 bg-zinc-900"
       >
         <Header />
         <router-view></router-view>

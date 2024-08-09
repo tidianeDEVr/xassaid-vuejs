@@ -6,6 +6,14 @@ Notiflix.Notify.init({
   position: 'right-bottom',
   closeButton: false,
 });
+
+Notiflix.Report.init({
+  backgroundColor: '#18181B',
+  failure: {
+    titleColor: '#ffffff',
+    messageColor: '#ffffff',
+  },
+});
 </script>
 
 <template>

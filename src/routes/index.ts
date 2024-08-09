@@ -6,8 +6,8 @@ const ContactPage = () => import('../pages/ContactPage.vue');
 const DurusPage = () => import('../pages/files/DurusPage.vue');
 const NotFoundPage = () => import('../pages/NotFoundPage.vue');
 const AudiosPage = () => import('../pages/audios/AudiosPage.vue');
-const SinglePageAudio = () => import('../pages/audios/TypePage.vue');
-const CategoryPage = () => import('../pages/audios/CategoryPage.vue');
+const SinglePageAudio = () => import('../pages/audios/SingleCategoryPage.vue');
+const CategoryPage = () => import('../pages/audios/CategoriesByTypePage.vue');
 const ResultsPage = () => import('../pages/ResultsPage.vue');
 const SinglePageFile = () => import('../pages/files/SinglePage.vue');
 const mainLayout = () => import('../layouts/MainLayout.vue');
@@ -21,7 +21,7 @@ const routes = [
       { path: '/contact', component: ContactPage },
       { path: '/audios', component: AudiosPage },
       { path: '/audios/:category', component: CategoryPage },
-      { path: '/audios/:category/:slug', component: SinglePageAudio },
+      { path: '/audios/category/:slug', component: SinglePageAudio },
       { path: '/durus', component: DurusPage },
       { path: '/durus/:slug', component: SinglePageFile },
       { path: '/results', component: ResultsPage },

@@ -104,17 +104,10 @@ export default {
         `https://files.xassaid.com/audios/${audio.pathToFile}`,
       );
       audioPlayer?.setAttribute('title', audio.title);
-
-      const playButton = audioPlayer?.querySelector(
-        '.play-btn',
-      ) as HTMLButtonElement | null;
-      console.log(playButton);
-
-      // playButton?.click();
     } catch (error) {
       Notiflix.Report.failure(
         'Erreur',
-        "Une erreur s'est produite lors de la récupération des données !",
+        "Une erreur s'est produite lors de la lecture du fichier audio !",
         'OK',
       );
     }

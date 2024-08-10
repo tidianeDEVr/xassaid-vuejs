@@ -12,9 +12,10 @@ let badges = TYPES;
 let slug = route.params.category as string;
 let categories = ref<AudioCategory[]>([]);
 
-watch(() => route.params.slug, initialize, { immediate: true });
+watch(() => route.params.category, initialize);
 
 function initialize() {
+  slug = route.params.category as string;
   AudioService.getAudiosByType(slug).then((res) => {
     if (res && res.categories) categories.value = res.categories;
   });

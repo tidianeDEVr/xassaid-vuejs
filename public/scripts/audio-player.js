@@ -5,7 +5,7 @@
     prevVolume = 2;
     initialized = false;
     barWidth = 3;
-    barGap = 1;
+    barGap = 3;
     bufferPercentage = 75;
     nonAudioAttributes = new Set([
       'title',
@@ -106,24 +106,23 @@
 
       this.changeVolume();
 
-      const observer = new MutationObserver((mutationsList) => {
-        for (const mutation of mutationsList) {
-            if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
-              // Your custom logic when `src` changes
-              try {
-                if(this.playing) this.audio.pause();
-                setTimeout(() => {
-                  this.audio.play();
-                }, 50);
-              } catch (error) {
-                
-              }
-            }
-          }
-      });
+      // const observer = new MutationObserver((mutationsList) => {
+      //   for (const mutation of mutationsList) {
+      //       if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
+      //         // Your custom logic when `src` changes
+      //         try {
+      //           if(this.playing) this.audio.pause();
+      //           setTimeout(() => {
+      //             this.audio.play();
+      //           }, 50);
+      //         } catch (error) {
 
-      observer.observe(this.audio, { attributes: true });
+      //         }
+      //       }
+      //     }
+      // });
 
+      // observer.observe(this.audio, { attributes: true });
     }
 
     updateFrequency() {

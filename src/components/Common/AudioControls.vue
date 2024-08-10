@@ -15,12 +15,12 @@ function toggle() {
 <template>
   <div
     :class="[
-      'controls fixed bottom-0 left-0 z-50 w-full text-2xl duration-300 ease-in-out',
+      'controls fixed bottom-0 left-0 z-40 w-full text-2xl duration-300 ease-in-out',
       { 'controls-out': !isOpened },
     ]"
   >
     <div
-      class="container mx-auto max-w-5xl rounded-t-lg bg-green-500/50 px-4 py-2 backdrop-blur-sm"
+      class="container mx-auto max-w-3xl rounded-t-lg bg-green-500/50 px-4 py-2 backdrop-blur-sm"
     >
       <audio-player
         v-pre

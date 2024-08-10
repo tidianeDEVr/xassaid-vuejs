@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Notiflix from 'notiflix';
+import PWAPopup from './components/Common/PWAPopup.vue';
 
 Notiflix.Notify.init({
   width: '300px',
@@ -17,5 +18,6 @@ Notiflix.Report.init({
 </script>
 
 <template>
+  <PWAPopup />
   <router-view></router-view>
 </template>

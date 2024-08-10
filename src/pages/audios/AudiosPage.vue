@@ -1,21 +1,21 @@
 <script setup lang="ts">
 import AudioTile from '../../components/Audios/AudioTile.vue';
 import AudioService from '../../services/AudioService';
-import CategoryCard from '../../components/Audios/CategoryCard.vue';
+// import CategoryCard from '../../components/Audios/CategoryCard.vue';
 import EmptyContent from '../../components/Dumbs/EmptyContent.vue';
-import { Audio, AudioCategory } from '../../utils/interfaces';
+import { Audio } from '../../utils/interfaces';
 import { ref } from 'vue';
 import { TYPES } from '../../utils/constants';
 
 let badges = TYPES;
-let categories = ref<AudioCategory[]>([]);
+// let categories = ref<AudioCategory[]>([]);
 let audios = ref<Audio[]>([]);
 
 initialize();
 
 function initialize() {
   AudioService.getAudiopage().then((res) => {
-    if (res && res.categories) categories.value = res.categories;
+    // if (res && res.categories) categories.value = res.categories;
     if (res && res.audios) audios.value = res.audios;
   });
 }
@@ -32,13 +32,13 @@ function initialize() {
         >{{ badge }}</router-link
       >
     </div>
-    <div class="mt-4 flex gap-2 overflow-x-scroll pb-2">
+    <!-- <div class="mt-4 flex gap-2 overflow-x-scroll pb-2">
       <CategoryCard
         v-for="category of categories"
         :category
         style="min-width: 150px"
       />
-    </div>
+    </div> -->
     <div
       class="mt-4 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4"
       v-if="audios.length > 0"

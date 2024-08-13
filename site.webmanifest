@@ -1,7 +1,7 @@
 {
   "name": "Xassaid",
   "short_name": "Xassaid",
-  "description": "Au service exclusif de Cheikh Ahmadou Bamba Mbacké.",
+  "description": "Xassaid est une plateforme numérique dédiée à l'éducation et à la diffusion des valeurs et du patrimoine du Mouridisme. Elle se distingue par son engagement à préserver et à promouvoir la richesse culturelle et spirituelle du Mouridisme, en offrant un accès à des ressources éducatives variées, visant à enrichir la compréhension et la pratique de cette voie spirituelle.",
   "id": "/",
   "start_url": "index.html",
   "icons": [

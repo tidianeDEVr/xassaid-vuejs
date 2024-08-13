@@ -24,12 +24,13 @@ function toggle() {
     >
       <audio-player
         v-pre
-        title="Midadi kourel hizbut tarqiyyah rufisque"
-        src="/mp3/xassaid/midadi.mp3"
-        bar-width="5"
+        title="Midadi - Serigne Cissé"
+        src="https://files.xassaid.com/audios/1720973593.MP3"
+        bar-width="8"
         bar-gap="2"
         preload
       ></audio-player>
+
       <!-- autoplay -->
       <div class="absolute -top-4 right-2">
         <button

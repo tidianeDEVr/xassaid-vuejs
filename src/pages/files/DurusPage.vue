@@ -66,7 +66,7 @@ onUnmounted(() => {
     class="bg-gradient-to-b from-zinc-100/5 to-zinc-100/0 p-4 pb-10"
     id="main"
   >
-    <h1 class="font-title text-xl font-bold lg:text-2xl">Durus</h1>
+    <h1 class="font-title text-xl font-bold lg:text-3xl">Durus</h1>
     <div
       class="mt-2 grid grid-cols-1 gap-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-4"
     >

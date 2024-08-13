@@ -33,7 +33,7 @@ function hideInstallPrompt() {
     class="align-center absolute left-0 top-0 z-50 grid h-full w-full place-content-center justify-center bg-black/50 backdrop-blur-sm"
   >
     <div class="rounded-lg bg-green-500 p-4">
-      <p>Install our app for a better experience!</p>
+      <p>Installez notre application pour une meilleure expérience !</p>
       <br />
       <div class="flex gap-4">
         <button @click="installPWA">Installer</button>

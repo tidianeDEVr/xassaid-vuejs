@@ -1,5 +1,6 @@
 {
   class AudioPlayer extends HTMLElement {
+    isInitialized = false;
     playing = false;
     volume = 2;
     prevVolume = 2;
@@ -106,23 +107,26 @@
 
       this.changeVolume();
 
-      // const observer = new MutationObserver((mutationsList) => {
-      //   for (const mutation of mutationsList) {
-      //       if (mutation.type === 'attributes' && mutation.attributeName === 'src') {
-      //         // Your custom logic when `src` changes
-      //         try {
-      //           if(this.playing) this.audio.pause();
-      //           setTimeout(() => {
-      //             this.audio.play();
-      //           }, 50);
-      //         } catch (error) {
+      const observer = new MutationObserver((mutationsList) => {
+        for (const mutation of mutationsList) {
+          if (
+            mutation.type === 'attributes' &&
+            mutation.attributeName === 'src'
+          ) {
+            // Logic when `src` changes
+            if (this.isInitialized) {
+              if (this.playing) this.audio.pause();
+              setTimeout(() => {
+                this.audio.play();
+              }, 50);
+            } else {
+              this.isInitialized = true;
+            }
+          }
+        }
+      });
 
-      //         }
-      //       }
-      //     }
-      // });
-
-      // observer.observe(this.audio, { attributes: true });
+      observer.observe(this.audio, { attributes: true });
     }
 
     updateFrequency() {
@@ -253,9 +257,10 @@
 
     getTimeString(time) {
       const secs = `${parseInt(`${time % 60}`, 10)}`.padStart(2, '0');
-      const min = parseInt(`${(time / 60) % 60}`, 10);
+      const mins = `${parseInt(`${(time / 60) % 60}`, 10)}`.padStart(2, '0');
+      const hours = `${parseInt(`${time / 3600}`, 10)}`.padStart(2, '0');
 
-      return `${min}:${secs}`;
+      return `${hours}:${mins}:${secs}`;
     }
 
     changeVolume() {
@@ -482,7 +487,7 @@
          ${this.style()}
           <figure class="audio-player">
             <figcaption class="audio-name"></figcaption>
-            <audio style="display: none" crossorigin='anonymous'></audio>
+            <audio style="display: none" crossorigin='anonymous' src='/mp3/xassaid/midadi.mp3'></audio>
             <button class="play-btn" type="button">play</button>
             <div class="progress-indicator">
                 <span class="current-time">0:0</span>

@@ -26,14 +26,16 @@ function playAudio(audio: Audio) {
           {{ audio.title }}
         </p>
         <br />
-        <span class="w-11/12 font-body text-sm text-gray-500">{{
-          audio.category?.title
-        }}</span>
+        <span
+          class="w-11/12 font-body text-sm text-gray-500"
+          style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis"
+          >{{ audio.category?.title }}</span
+        >
       </div>
       <div class="flex flex-grow justify-end">
         <button
           @click="playAudio(audio)"
-          class="ml-1 flex h-12 w-12 items-center justify-center rounded-full bg-green-500/40 text-2xl duration-300 ease-in-out hover:bg-green-500/80"
+          class="ml-1 flex h-12 w-12 items-center justify-center rounded-full bg-green-800 text-2xl shadow-black duration-300 ease-in-out hover:bg-green-600"
           id="read-button"
           :title="`${audio.title}`"
         >

@@ -17,6 +17,8 @@
     "prettier-plugin-tailwindcss": "^0.6.5",
     "register-service-worker": "^1.7.2",
     "remixicon": "^4.3.0",
+    "rxjs": "^7.8.1",
+    "ts-cacheable": "^1.0.10",
     "vue": "^3.4.21",
     "vuex": "^4.0.2"
   },

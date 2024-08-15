@@ -2,11 +2,11 @@
 import AudioTile from '../../components/Audios/AudioTile.vue';
 import AudioService from '../../services/AudioService';
 import EmptyContent from '../../components/Dumbs/EmptyContent.vue';
+import AudioBadge from '../../components/Audios/AudioBadge.vue';
 import { useRoute } from 'vue-router';
 import { TYPES } from '../../utils/constants';
 import { ref } from 'vue';
 import { Audio, AudioCategory } from '../../utils/interfaces';
-import AudioBadge from '../../components/Audios/AudioBadge.vue';
 
 const route = useRoute();
 let badges = TYPES;

@@ -53,15 +53,12 @@ function initialize() {
 </script>
 <template>
   <div class="relative">
-    <div class="absolute top-10" v-if="isLoading">
-      <div
-        role="status"
-        class="flex aspect-square animate-pulse items-center justify-center rounded-lg border border-gray-200/20 bg-gray-300 dark:bg-green-500/30"
-      >
+    <div class="absolute top-32 w-full">
+      <div role="status" class="flex animate-pulse items-center justify-center">
         <div role="status">
           <svg
             aria-hidden="true"
-            class="inline h-8 w-8 animate-spin fill-green-500 text-gray-200 dark:text-gray-600"
+            class="inline h-16 w-16 animate-spin fill-green-500 text-gray-200 dark:text-gray-600"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 let isMobileMenuActive = ref(false);
+let isMobileSearchFocused = ref(false);
 function goBack() {
   window.history.back();
 }
@@ -9,6 +10,13 @@ function goForward() {
 }
 function toggleMobileMenu() {
   isMobileMenuActive.value = !isMobileMenuActive.value;
+}
+function toggleFocus() {
+  isMobileSearchFocused.value = !isMobileSearchFocused.value;
+  if (isMobileSearchFocused.value) {
+    const input = document.getElementById('mobile-input');
+    input?.focus();
+  }
 }
 </script>
 
@@ -87,7 +95,8 @@ function toggleMobileMenu() {
     <div class="flex w-full justify-between gap-5 xl:justify-normal">
       <router-link
         to="/"
-        class="flex items-center justify-center gap-3 bg-transparent xl:hidden"
+        class="logo flex items-center justify-center gap-3 bg-transparent xl:hidden"
+        :class="{ 'opacity-0': isMobileSearchFocused }"
       >
         <img
           src="../../assets/images/logo-xassaid.png"
@@ -129,6 +138,28 @@ function toggleMobileMenu() {
         </div>
         <div class="align-center flex xl:hidden">
           <!-- Mobile Search Here -->
+          <div class="relative">
+            <form action="" class="search-mobile -z-1 absolute right-0 top-0">
+              <input
+                placeholder="Veuillez saisir pour rechercher..."
+                type="text"
+                name=""
+                id="mobile-input"
+                :class="[
+                  'h-[44px] rounded-full bg-green-500/20 outline-none duration-300 ease-in-out focus:bg-green-500/40',
+                  { 'focused z-50': isMobileSearchFocused },
+                ]"
+                @blur="toggleFocus()"
+              />
+            </form>
+            <button
+              class="ml-3 aspect-square rounded-full bg-green-500/20 px-3 text-xl"
+              @click="toggleFocus()"
+              :class="{ hidden: isMobileSearchFocused }"
+            >
+              <i class="ri-search-line"></i>
+            </button>
+          </div>
           <button
             class="ml-3 aspect-square rounded-full bg-green-500/20 px-3 text-xl"
             @click="toggleMobileMenu"
@@ -160,7 +191,19 @@ function toggleMobileMenu() {
 </template>
 
 <style scoped>
+.logo {
+  transition: opacity 0.4s ease-in-out;
+}
 .closed {
   right: 100%;
+}
+.search-mobile input {
+  width: 0;
+  transition: width 0.4s ease-in-out;
+}
+.search-mobile input.focused {
+  width: calc(100vw - 115px);
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 </style>

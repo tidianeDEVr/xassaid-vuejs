@@ -3,10 +3,17 @@ import { Audio, AudioCategory, File } from '../utils/interfaces';
 
 const API_URL = import.meta.env.VITE_XASSAID_API_BASE;
 
-export default {
-  async getMainpage(): Promise<void | AudioCategory[]> {
+// Création d'une classe pour gérer les appels API et le cache
+class AudioService {
+  private cache: Map<string, any> = new Map();
+
+  private async fetchFromApi(url: string): Promise<any> {
+    if (this.cache.has(url)) {
+      return this.cache.get(url);
+    }
+
     try {
-      const response = await fetch(`${API_URL}/homepage`, {
+      const response = await fetch(url, {
         credentials: 'include',
       });
 
@@ -15,87 +22,43 @@ export default {
       }
 
       const data = await response.json();
+      this.cache.set(url, data);
       return data;
     } catch (error) {
-      console.error('There was an error fetching the data !', error);
+      console.error('There was an error fetching the data!', error);
       Notiflix.Report.failure(
         'Erreur',
         "Une erreur s'est produite lors de la récupération des données !",
         'OK',
       );
+      throw error;
     }
-  },
-  async getAudiopage(): Promise<void | {
-    categories: AudioCategory[];
-    audios: File[];
-  }> {
-    try {
-      const response = await fetch(`${API_URL}/audiopage`, {
-        credentials: 'include',
-      });
+  }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+  getMainpage(): Promise<AudioCategory[]> {
+    const url = `${API_URL}/homepage`;
+    return this.fetchFromApi(url);
+  }
 
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('There was an error fetching the data !', error);
-      Notiflix.Report.failure(
-        'Erreur',
-        "Une erreur s'est produite lors de la récupération des données !",
-        'OK',
-      );
-    }
-  },
-  async getAudiosByType(
-    type: string,
-  ): Promise<void | { categories: AudioCategory[] }> {
-    try {
-      const response = await fetch(`${API_URL}/audios/${type}`, {
-        credentials: 'include',
-      });
+  getAudiopage(
+    page: number,
+  ): Promise<{ categories: AudioCategory[]; audios: File[] }> {
+    const url = `${API_URL}/audios/page/${page}`;
+    return this.fetchFromApi(url);
+  }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
+  getAudiosByType(type: string): Promise<{ categories: AudioCategory[] }> {
+    const url = `${API_URL}/audios/${type}`;
+    return this.fetchFromApi(url);
+  }
 
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error('There was an error fetching the data !', error);
-      Notiflix.Report.failure(
-        'Erreur',
-        "Une erreur s'est produite lors de la récupération des données !",
-        'OK',
-      );
-    }
-  },
-  async getAudiosByCategory(category: string): Promise<void | {
-    category: AudioCategory;
-    audios: File[];
-  }> {
-    try {
-      const response = await fetch(`${API_URL}/audios/category/${category}`, {
-        credentials: 'include',
-      });
+  getAudiosByCategory(
+    category: string,
+  ): Promise<{ category: AudioCategory; audios: File[] }> {
+    const url = `${API_URL}/audios/category/${category}`;
+    return this.fetchFromApi(url);
+  }
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error(error);
-      Notiflix.Report.failure(
-        'Erreur',
-        "Une erreur s'est produite lors de la récupération des données !",
-        'OK',
-      );
-    }
-  },
   async playAudio(audio: Audio) {
     const audioPlayer = document.querySelector('audio-player');
     try {
@@ -111,5 +74,7 @@ export default {
         'OK',
       );
     }
-  },
-};
+  }
+}
+
+export default new AudioService();

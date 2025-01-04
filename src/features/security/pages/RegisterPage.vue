@@ -35,7 +35,7 @@ function previousQuote() {
           Xassaid<span class="text-green-500">.</span>
         </router-link>
         <div>
-          <h3 class="mb-3 mt-8 text-2xl">Page de connexion</h3>
+          <h3 class="mb-3 mt-8 text-2xl">Page d'inscription</h3>
           <form action="">
             <div>
               <label for="email">E-mail</label><br />
@@ -47,6 +47,26 @@ function previousQuote() {
                 class="mt-1 h-[40px] w-full rounded-sm px-2 text-black outline-none"
               />
             </div>
+            <div class="mt-4 flex justify-between gap-2 lg:gap-4">
+              <div>
+                <label for="firstname">Prénom</label><br />
+                <input
+                  type="text"
+                  name="firstname"
+                  placeholder="Cheikh Tidiane"
+                  class="mt-1 h-[40px] w-full rounded-sm px-2 text-black outline-none"
+                />
+              </div>
+              <div>
+                <label for="password">Nom</label><br />
+                <input
+                  type="text"
+                  name="lastname"
+                  placeholder="NDIAYE"
+                  class="mt-1 h-[40px] w-full rounded-sm px-2 text-black outline-none"
+                />
+              </div>
+            </div>
             <div class="mt-4">
               <label for="password">Mot de passe</label><br />
               <input
@@ -57,22 +77,27 @@ function previousQuote() {
                 class="mt-1 h-[40px] w-full rounded-sm px-2 text-black outline-none"
               />
             </div>
+            <div class="mt-4">
+              <label for="confirm-password">Confirmation du mot de passe</label
+              ><br />
+              <input
+                type="password"
+                name="confirm-password"
+                placeholder="••••••••••••••"
+                autocomplete="current-password"
+                class="mt-1 h-[40px] w-full rounded-sm px-2 text-black outline-none"
+              />
+            </div>
             <div class="flex justify-end">
-              <router-link to="/register" class="my-4 font-body underline"
-                >Mot de passe oublié ?</router-link
+              <router-link to="/login" class="my-4 font-body underline"
+                >Vous avez déjà un compte ?</router-link
               >
             </div>
-            <button class="mt-4 w-full rounded-sm bg-green-500/80 py-2 text-lg">
-              Soumettre
-            </button>
-            <div class="flex justify-center">
-              <span class="my-2 text-2xl">ou</span>
-            </div>
             <button
-              class="align-center flex w-full justify-center gap-3 rounded-sm bg-white py-2 text-black"
+              class="mt-8 w-full rounded-sm bg-green-500/80 py-2 text-lg"
+              type="submit"
             >
-              <img src="/images/google.png" alt="Google Logo" width="25" />
-              <span class="text-lg">Continuez-vous avec Google</span>
+              Soumettre
             </button>
           </form>
         </div>

@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import AudioService from '../../services/AudioService';
-import { Audio } from '../../utils/interfaces';
+import AudioService from '../../../services/AudioService';
+import { Audio } from '../../../utils/interfaces';
 
 defineProps<{ index: number; audio: Audio }>();
-
-function playAudio(audio: Audio) {
-  AudioService.playAudio(audio);
-}
 </script>
 <template>
   <div
@@ -34,8 +30,13 @@ function playAudio(audio: Audio) {
       </div>
       <div class="flex flex-grow justify-end">
         <button
-          @click="playAudio(audio)"
-          class="ml-1 flex h-12 w-12 items-center justify-center rounded-full bg-green-800 text-2xl shadow-black duration-300 ease-in-out hover:bg-green-600"
+          @click="
+            AudioService.playAudio(
+              `${audio.title} - ${audio.category?.title}`,
+              audio.pathToFile,
+            )
+          "
+          class="ml-1 flex h-12 w-12 items-center justify-center rounded-full bg-green-900 text-2xl shadow-black duration-300 ease-in-out hover:bg-green-600"
           id="read-button"
           :title="`${audio.title}`"
         >

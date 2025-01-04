@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AudioCategory } from '../../utils/interfaces';
+import { AudioCategory } from '../../../utils/interfaces';
 
 defineProps<{ category: AudioCategory }>();
 

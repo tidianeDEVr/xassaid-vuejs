@@ -37,7 +37,7 @@ function hideInstallPrompt() {
       style="min-height: 300px; max-width: 800px"
     >
       <div class="relative grid grid-cols-1 md:grid-cols-2 lg:gap-4">
-        <div class="p-4 pr-32 md:p-4">
+        <div class="p-4 pr-32 md:p-4 lg:p-0">
           <h3 class="font-title text-2xl font-bold md:text-3xl">
             Installez Xassaid !
           </h3>

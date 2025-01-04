@@ -21,5 +21,12 @@ export interface Audio {
   slug: string;
   title: string;
   pathToFile: string;
-  category?: AudioCategory
+  category?: AudioCategory;
+}
+
+export interface HomePageData {
+  makkGni: AudioCategory[];
+  rajassKatYii: AudioCategory[];
+  kourelsYii: AudioCategory[];
+  sammFallYii: AudioCategory[];
 }

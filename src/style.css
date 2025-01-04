@@ -8,6 +8,7 @@
 @layer utilities {
   .h-screen-minus-20 {
     height: calc(100vh - 20px);
+    height: calc(100svh - 20px);
   }
   .no-scrollbar::-webkit-scrollbar {
     display: none;
@@ -16,6 +17,10 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+.h-screen {
+  height: 100svh;
 }
 
 body {

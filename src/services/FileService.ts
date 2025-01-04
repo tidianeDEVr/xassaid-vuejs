@@ -1,4 +1,4 @@
-import { File } from '../utils/interfaces';
+import { Audio, File } from '../utils/interfaces';
 import Notiflix from 'notiflix';
 
 const API_URL = import.meta.env.VITE_XASSAID_API_BASE;
@@ -35,12 +35,17 @@ class FileService {
   }
 
   getFiles(page: number): Promise<File[]> {
-    const url = `${API_URL}/files/${page}`;
+    const url = `${API_URL}/files/page/${page}`;
     return this.fetchFromApi(url);
   }
 
   getFileBySlug(slug: string): Promise<File> {
     const url = `${API_URL}/file/${slug}`;
+    return this.fetchFromApi(url);
+  }
+
+  searchByTerm(term: String): Promise<{ audios: Audio[]; files: File[] }> {
+    const url = `${API_URL}/search/${term}`;
     return this.fetchFromApi(url);
   }
 }

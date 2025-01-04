@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { File } from '../../utils/interfaces';
+import { File } from '../../../utils/interfaces';
 
 defineProps<{ index: number; file: File }>();
 </script>
@@ -10,7 +10,7 @@ defineProps<{ index: number; file: File }>();
     <div class="flex w-full">
       <div class="relative mr-2 grid place-content-center">
         <div>
-          <span class="font-title text-2xl italic lg:text-3xl">
+          <span class="font-title text-3xl italic lg:text-4xl">
             {{ index + 1 }}.
           </span>
         </div>
@@ -30,7 +30,7 @@ defineProps<{ index: number; file: File }>();
       <div class="flex flex-grow justify-end">
         <router-link
           :to="'/durus/' + file.slug"
-          class="ml-1 flex h-12 w-12 items-center justify-center rounded-full bg-green-500/40 text-2xl duration-300 ease-in-out hover:bg-green-500/80"
+          class="ml-1 flex h-12 w-12 items-center justify-center rounded-full bg-green-900 text-2xl shadow-black duration-300 ease-in-out hover:bg-green-600"
           id="read-button"
           :title="`${file.title}`"
         >

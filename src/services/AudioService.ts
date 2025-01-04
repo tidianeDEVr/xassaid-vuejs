@@ -1,9 +1,8 @@
 import Notiflix from 'notiflix';
-import { Audio, AudioCategory, File } from '../utils/interfaces';
+import { AudioCategory, File, HomePageData } from '../utils/interfaces';
 
 const API_URL = import.meta.env.VITE_XASSAID_API_BASE;
 
-// Création d'une classe pour gérer les appels API et le cache
 class AudioService {
   private cache: Map<string, any> = new Map();
 
@@ -35,7 +34,7 @@ class AudioService {
     }
   }
 
-  getMainpage(): Promise<AudioCategory[]> {
+  getMainpage(): Promise<HomePageData> {
     const url = `${API_URL}/homepage`;
     return this.fetchFromApi(url);
   }
@@ -59,14 +58,14 @@ class AudioService {
     return this.fetchFromApi(url);
   }
 
-  async playAudio(audio: Audio) {
+  async playAudio(name: string, path: string) {
     const audioPlayer = document.querySelector('audio-player');
     try {
       audioPlayer?.setAttribute(
         'src',
-        `https://files.xassaid.com/audios/${audio.pathToFile}`,
+        `https://files.xassaid.com/audios/${path}`,
       );
-      audioPlayer?.setAttribute('title', audio.title);
+      audioPlayer?.setAttribute('title', name);
     } catch (error) {
       Notiflix.Report.failure(
         'Erreur',

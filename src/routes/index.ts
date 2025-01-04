@@ -1,15 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router';
-const HomePage = () => import('../pages/HomePage.vue');
-const LoginPage = () => import('../pages/security/LoginPage.vue');
-const RegisterPage = () => import('../pages/security/RegisterPage.vue');
-const ContactPage = () => import('../pages/ContactPage.vue');
-const DurusPage = () => import('../pages/files/DurusPage.vue');
-const NotFoundPage = () => import('../pages/NotFoundPage.vue');
-const AudiosPage = () => import('../pages/audios/AudiosPage.vue');
-const SinglePageAudio = () => import('../pages/audios/SingleCategoryPage.vue');
-const CategoryPage = () => import('../pages/audios/CategoriesByTypePage.vue');
-const ResultsPage = () => import('../pages/ResultsPage.vue');
-const SinglePageFile = () => import('../pages/files/SinglePage.vue');
+const HomePage = () => import('../features/HomePage.vue');
+const LoginPage = () => import('../features/security/pages/LoginPage.vue');
+const RegisterPage = () =>
+  import('../features/security/pages/RegisterPage.vue');
+const DurusPage = () => import('../features/files/pages/DurusPage.vue');
+const NotFoundPage = () => import('../features/NotFoundPage.vue');
+const AudiosPage = () => import('../features/audios/pages/AudiosPage.vue');
+const SinglePageAudio = () =>
+  import('../features/audios/pages/SingleCategoryPage.vue');
+const CategoryPage = () =>
+  import('../features/audios/pages/CategoriesByTypePage.vue');
+const ResultsPage = () => import('../features/ResultsPage.vue');
+const SinglePageFile = () => import('../features/files/pages/SinglePage.vue');
 const mainLayout = () => import('../layouts/MainLayout.vue');
 
 const routes = [
@@ -18,13 +20,12 @@ const routes = [
     component: mainLayout,
     children: [
       { path: '/', component: HomePage },
-      { path: '/contact', component: ContactPage },
       { path: '/audios', component: AudiosPage },
       { path: '/audios/:category', component: CategoryPage },
       { path: '/audios/category/:slug', component: SinglePageAudio },
       { path: '/durus', component: DurusPage },
       { path: '/durus/:slug', component: SinglePageFile },
-      { path: '/results', component: ResultsPage },
+      { path: '/results/:term', component: ResultsPage },
       { path: '/:pathMatch(.*)*', component: NotFoundPage },
     ],
   },

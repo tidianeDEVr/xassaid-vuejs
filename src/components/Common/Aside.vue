@@ -3,14 +3,14 @@
   <div class="rounded-md border border-gray-200/20 bg-zinc-900 p-4">
     <router-link
       to="/"
-      class="flex items-center justify-center gap-3 bg-transparent duration-300 ease-in-out hover:scale-105"
+      class="flex items-center justify-center gap-3 rounded-md bg-green-500/10 py-2 duration-300 ease-in-out hover:scale-105"
     >
       <img
         src="../../assets/images/logo-xassaid.png"
         alt="Logo Xassaid"
-        class="w-14"
+        class="w-12"
       />
-      <h2 class="mt-2 font-title text-4xl font-bold italic opacity-100">
+      <h2 class="mt-2 font-title text-3xl font-bold italic opacity-100">
         Xassaid
       </h2>
     </router-link>
@@ -57,14 +57,15 @@
         </a>
       </li>
       <li class="duration-300 ease-in-out hover:scale-110">
-        <router-link
+        <a
           activeClass="bg-green-500/40"
-          to="/contact"
+          href="https://blog.xassaid.com/contact"
+          target="_blank"
           class="navigation-btn block w-full rounded-md py-2 pl-4 text-lg font-bold opacity-70 duration-500 ease-in-out"
         >
           <i class="ri-mail-fill"></i>
           <span class="ml-3 font-title">Contact</span>
-        </router-link>
+        </a>
       </li>
     </ul>
   </div>

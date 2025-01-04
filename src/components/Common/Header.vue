@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import Notiflix from 'notiflix';
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
 let isMobileMenuActive = ref(false);
 let isMobileSearchFocused = ref(false);
+let searchTerm = ref('');
+const router = useRouter();
 function goBack() {
   window.history.back();
 }
@@ -17,6 +21,16 @@ function toggleFocus() {
     const input = document.getElementById('mobile-input');
     input?.focus();
   }
+}
+function processSearch() {
+  if (searchTerm.value.length < 3)
+    return Notiflix.Notify.warning(
+      'Veuillez entrain au moins 3 lettres pour la recherche !',
+    );
+
+  router.push(`/results/${searchTerm.value.toLowerCase()}`);
+
+  searchTerm.value = '';
 }
 </script>
 
@@ -63,11 +77,12 @@ function toggleFocus() {
           <a target="_blank" href="https://blog.xassaid.com/">Blog</a>
         </li>
         <li>
-          <router-link
-            to="/contact"
+          <a
+            href="https://blog.xassaid.com/contact"
+            target="_blank"
             exactActiveClass="border-green-500/40 border-b-4"
             @click="toggleMobileMenu"
-            >Contact</router-link
+            >Contact</a
           >
         </li>
         <li></li>
@@ -124,26 +139,36 @@ function toggleFocus() {
         </button>
       </div>
       <div class="flex font-title">
-        <div class="relative hidden h-full md:block">
+        <form
+          class="relative hidden h-full md:block"
+          v-on:submit.prevent="processSearch"
+        >
           <input
             type="text"
+            name="term"
+            v-model="searchTerm"
             placeholder="Veuillez saisir pour rechercher..."
             class="h-full w-80 rounded-full bg-green-500/20 px-4 outline-none duration-300 ease-in-out focus:bg-green-500/40"
           />
           <button
             class="absolute inset-y-0 right-0 pr-4 duration-300 ease-in-out hover:scale-125"
+            type="submit"
           >
             <i class="ri-search-line"></i>
           </button>
-        </div>
+        </form>
         <div class="align-center flex xl:hidden">
           <!-- Mobile Search Here -->
           <div class="relative">
-            <form action="" class="search-mobile -z-1 absolute right-0 top-0">
+            <form
+              v-on:submit.prevent="processSearch"
+              class="search-mobile -z-1 absolute right-0 top-0"
+            >
               <input
                 placeholder="Veuillez saisir pour rechercher..."
                 type="text"
                 name=""
+                v-model="searchTerm"
                 id="mobile-input"
                 :class="[
                   'h-[44px] rounded-full bg-green-500/20 outline-none duration-300 ease-in-out focus:bg-green-500/40',
